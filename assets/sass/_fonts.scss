@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Lato";
+  src: local("Lato Regular"), local("Lato-Regular"),
+    url("../fonts/lato-regular.woff2") format("woff2"),
+    url("../fonts/lato-regular.woff2") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: local("Lato Black"), local("Lato-Black"),
+    url("../fonts/lato-black.woff2") format("woff2"),
+    url("../fonts/lato-black.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 900;
+}
+
+body {
+  font-family: "Lato", "Verdana", sans-serif;
+  font-size: 14px;
+}

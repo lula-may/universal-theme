@@ -1,3 +1,30 @@
+@font-face {
+  font-family: "Lato";
+  src: local("Lato Regular"), local("Lato-Regular"), url("../fonts/lato-regular.woff2") format("woff2"), url("../fonts/lato-regular.woff2") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: local("Lato Black"), local("Lato-Black"), url("../fonts/lato-black.woff2") format("woff2"), url("../fonts/lato-black.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 900;
+}
+
+body {
+  font-family: "Lato", "Verdana", sans-serif;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1140px;
+  width: 90%;
+  margin: auto;
+}
+
 .header {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -31,6 +58,8 @@
 .menu-item a {
   margin-left: 15px;
   margin-right: 15px;
+  font: inherit;
+  font-weight: bold;
   text-decoration: none;
   color: #ffffff;
 }
@@ -84,8 +113,202 @@
   cursor: pointer;
 }
 
-.container {
-  max-width: 1140px;
-  width: 90%;
-  margin: auto;
+.home {
+  background-color: #e5e5e5;
+}
+
+.front-page-header {
+  position: relative;
+  padding-top: 30px;
+  background-color: #262D33;
+}
+
+.front-page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #e5e5e5;
+  width: 100%;
+  height: 20%;
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 570px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.hero .left {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+  padding: 55px 55px 100px;
+}
+
+.hero .left::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: rgba(64, 48, 61, 0.35);
+}
+
+.hero .left .post-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  z-index: 0;
+}
+
+.hero .left .author {
+  position: relative;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.hero .left .author-bio {
+  margin-left: 10px;
+}
+
+.hero .left .author-name {
+  display: block;
+  font-size: 14px;
+  line-height: 1.19;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero .left .author-rank {
+  font-size: 12px;
+  line-height: 1.04;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hero .left .avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.hero .left .category-name {
+  font-size: 12px;
+  line-height: 1.04;
+  letter-spacing: 0.5px;
+  font-weight: 900;
+  color: #4592FF;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero .left .post-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero .left .post-title {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-family: "Roboto Slab", "Georgia", serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.hero .left .more {
+  display: inline-block;
+  padding: 10px 45px 10px 20px;
+  color: #ffffff;
+  font-size: 14px;
+  font-style: normal;
+  text-decoration: none;
+  font-weight: 900;
+  line-height: 20px;
+  background-color: #4592FF;
+  border-radius: 20px;
+  background-image: url("../images/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center right 20px;
+  background-size: 15px;
+}
+
+.hero .right {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  background-color: #ffffff;
+}
+
+.hero .right .recommend {
+  margin-left: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #262D33;
+}
+
+.hero .right .posts-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hero .right .post {
+  padding: 17px 25px 19px 25px;
+  margin: 0;
+  min-height: 100px;
+  border-top: 1px solid #D9DADB;
+}
+
+.hero .right .post:hover {
+  background-color: #f5f5f5;
+}
+
+.hero .right .category-name {
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hero .right .post-title {
+  margin-top: 8px;
+  margin-bottom: 0;
+  min-height: 40px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
 }
