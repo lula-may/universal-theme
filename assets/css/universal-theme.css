@@ -119,19 +119,9 @@ body {
 
 .front-page-header {
   position: relative;
+  height: 545px;
   padding-top: 30px;
   background-color: #262D33;
-}
-
-.front-page-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: #e5e5e5;
-  width: 100%;
-  height: 20%;
-  z-index: 0;
 }
 
 .hero {
@@ -145,7 +135,15 @@ body {
   border-radius: 10px;
 }
 
-.hero .left {
+.hero .category-name {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero-left {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -162,7 +160,7 @@ body {
   padding: 55px 55px 100px;
 }
 
-.hero .left::after {
+.hero-left::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -173,7 +171,7 @@ body {
   background-color: rgba(64, 48, 61, 0.35);
 }
 
-.hero .left .post-thumb {
+.hero-left .post-thumb {
   position: absolute;
   top: 0;
   left: 0;
@@ -182,7 +180,7 @@ body {
   z-index: 0;
 }
 
-.hero .left .author {
+.hero-left .author {
   position: relative;
   z-index: 2;
   display: -webkit-box;
@@ -195,45 +193,40 @@ body {
   font-weight: normal;
 }
 
-.hero .left .author-bio {
+.hero-left .author-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.hero-left .author-bio {
   margin-left: 10px;
 }
 
-.hero .left .author-name {
+.hero-left .author-name {
   display: block;
   font-size: 14px;
   line-height: 1.19;
   color: rgba(255, 255, 255, 0.85);
 }
 
-.hero .left .author-rank {
+.hero-left .author-rank {
   font-size: 12px;
   line-height: 1.04;
   color: rgba(255, 255, 255, 0.4);
 }
 
-.hero .left .avatar {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-}
-
-.hero .left .category-name {
-  font-size: 12px;
-  line-height: 1.04;
-  letter-spacing: 0.5px;
-  font-weight: 900;
-  color: #4592FF;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.hero .left .post-text {
+.hero-left .post-text {
   position: relative;
   z-index: 2;
 }
 
-.hero .left .post-title {
+.hero-left .post-category {
+  line-height: 1.04;
+  color: #4592FF;
+}
+
+.hero-left .post-title {
   margin-top: 20px;
   margin-bottom: 50px;
   font-family: "Roboto Slab", "Georgia", serif;
@@ -244,7 +237,7 @@ body {
   color: #ffffff;
 }
 
-.hero .left .more {
+.hero-left .post-more {
   display: inline-block;
   padding: 10px 45px 10px 20px;
   color: #ffffff;
@@ -261,13 +254,13 @@ body {
   background-size: 15px;
 }
 
-.hero .right {
+.hero-right {
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   background-color: #ffffff;
 }
 
-.hero .right .recommend {
+.hero-right .recommend {
   margin-left: 25px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -279,36 +272,32 @@ body {
   color: #262D33;
 }
 
-.hero .right .posts-list {
+.hero-right .posts-list {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.hero .right .post {
+.hero-right .post {
   padding: 17px 25px 19px 25px;
   margin: 0;
   min-height: 100px;
   border-top: 1px solid #D9DADB;
 }
 
-.hero .right .post:hover {
+.hero-right .post:hover {
   background-color: #f5f5f5;
 }
 
-.hero .right .category-name {
-  font-size: 12px;
-  font-weight: 900;
-  line-height: 15px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+.hero-right .post-category {
+  line-height: 1.25;
 }
 
-.hero .right .post-title {
+.hero-right .post-title {
   margin-top: 8px;
   margin-bottom: 0;
   min-height: 40px;
   font-size: 14px;
+  line-height: 1.43;
   font-weight: normal;
-  line-height: 20px;
 }
