@@ -78,10 +78,20 @@
   .post-text
     position: relative
     z-index: 2
+    max-width: 600px
 
-  .post-category
-    line-height: 1.04
-    color:#4592FF
+  .post-categories
+    margin: 0
+    padding: 0
+    list-style: none
+    a
+      font-size: 12px
+      line-height: 1.04
+      color:#4592FF
+      letter-spacing: 0.5px
+      font-weight: 900
+      text-transform: uppercase
+      text-decoration: none
 
   .post-title
     margin-top: 20px
@@ -138,8 +148,21 @@
     &:hover
       background-color: #f5f5f5
 
-  .post-category
-    line-height: 1.25
+  .post-categories
+    margin: 0
+    padding: 0
+    list-style: none
+    a
+      font-size: 12px
+      line-height: 1.25
+      letter-spacing: 0.5px
+      font-weight: 900
+      text-transform: uppercase
+      text-decoration: none
+
+  .post-permalink
+    text-decoration: none
+    color: #4B5157
 
   .post-title
     margin-top: 8px

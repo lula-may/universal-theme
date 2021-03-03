@@ -219,11 +219,23 @@ body {
 .hero-left .post-text {
   position: relative;
   z-index: 2;
+  max-width: 600px;
 }
 
-.hero-left .post-category {
+.hero-left .post-categories {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-left .post-categories a {
+  font-size: 12px;
   line-height: 1.04;
   color: #4592FF;
+  letter-spacing: 0.5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .hero-left .post-title {
@@ -289,8 +301,24 @@ body {
   background-color: #f5f5f5;
 }
 
-.hero-right .post-category {
+.hero-right .post-categories {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-right .post-categories a {
+  font-size: 12px;
   line-height: 1.25;
+  letter-spacing: 0.5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero-right .post-permalink {
+  text-decoration: none;
+  color: #4B5157;
 }
 
 .hero-right .post-title {
