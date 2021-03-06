@@ -7,9 +7,13 @@
         global $post;
 
         $myposts = get_posts([
-          'numberposts' =>
-        1, 'category_name' => 'javascript, html, css, web-design' ]); if(
-        $myposts ){ foreach( $myposts as $post ){ setup_postdata($post ); ?>
+          'numberposts' =>1,
+          'category_name' => 'javascript, html, css, web-design'
+        ]);
+
+        if(
+        $myposts ){ foreach( $myposts as $post ){
+          setup_postdata($post ); ?>
 
         <!-- Вывода постов -->
         <img
@@ -55,9 +59,12 @@
           global $post;
 
           $myposts = get_posts([
-            'numberposts' =>
-          5, 'offset' => 1, 'category_name' => 'javascript, html, css,
-          web-design' ]); if( $myposts ){ foreach( $myposts as $post ){
+            'numberposts' => 5,
+            'offset' => 1,
+            'category_name' => 'javascript, html, css, web-design'
+          ]);
+
+          if( $myposts ){ foreach( $myposts as $post ){
           setup_postdata( $post ); ?>
 
           <!-- Вывода постов -->
