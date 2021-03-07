@@ -130,174 +130,175 @@
     </article>
     <!-- /.articles-bar -->
 
-    <section class="articles">
-      <h2 class="hidden">Подборка самых интересных статей</h2>
-      <ul class="articles-list">
-        <?php
-        global $post;
-        // формируем запрос в базу данных
-        $query = new WP_Query( [
-          'posts_per_page' => 7,
-          'orderby'        => 'comment_count',
-          'tag'            => 'popular'
-        ] );
-          // Проверяем есть ли посты
-        if ( $query->have_posts() ) {
-          // создаем переменную-счетчик постов
-          $count = 0;
-          while ( $query->have_posts() ) {
-            $query->the_post();
-            // Увеличиваем счетчик
-            $count++;
-            switch ($count) {
-              // Выводим первый пост
-              case '1':
-                ?>
-                  <li class="articles-item articles-item--1">
-                    <a href="<?php the_permalink(); ?>" class="articles-link">
-                      <article class="article">
-                        <div class="article-content">
-                          <div class="article-left-column">
+    <div class="main-grid">
+      <section class="articles">
+        <h2 class="hidden">Подборка самых популярных статей</h2>
+        <ul class="articles-list">
+          <?php
+          global $post;
+          // формируем запрос в базу данных
+          $query = new WP_Query( [
+            'posts_per_page' => 7,
+            'orderby'        => 'comment_count',
+            'tag'            => 'popular'
+          ] );
+            // Проверяем есть ли посты
+          if ( $query->have_posts() ) {
+            // создаем переменную-счетчик постов
+            $count = 0;
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              // Увеличиваем счетчик
+              $count++;
+              switch ($count) {
+                // Выводим первый пост
+                case '1':
+                  ?>
+                    <li class="articles-item articles-item--1">
+                      <a href="<?php the_permalink(); ?>" class="articles-link">
+                        <article class="article">
+                          <div class="article-content">
+                            <div class="article-left-column">
+                              <span class="article-category">
+                                <?php
+                                  $category = get_the_category();
+                                  echo $category[0]->name;?>
+                                </span>
+                              <h3 class="article-title">
+                                <?php echo mb_strimwidth( get_the_title(), 0, 50, ' ...') ; ?>
+                              </h3>
+                              <p class="article-text">
+                                <?php echo wp_trim_words( get_the_content(), 15, '...' ); ; ?>
+                              </p>
+                            </div>
+                            <div class="article-right-column">
+                              <img
+                                src="<?php the_post_thumbnail_url(); ?>"
+                                alt="<?php the_title(); ?>"
+                                class="article-image"
+                              />
+                            </div>
+                          </div>
+                          <footer class="article-footer">
+                            <blockquote>
+                              <?php $author_id = get_the_author_meta('ID'); ?>
+                              <img
+                                src="<?php echo get_avatar_url($author_id) ?>"
+                                alt="Автор статьи"
+                                class="article-author-avatar"
+                              />
+                              <cite class="article-author"><?php the_author(); ?>:</cite>
+                              <p class="article-author-quote">
+                                <?php echo mb_strimwidth( get_the_author_meta('description'), 0, 40, ' ...') ; ?>
+                              </p>
+                            </blockquote>
+                            <span class="article-comments">
+                              <?php comments_number('0', '1', '%'); ?>
+                            </span>
+                          </footer>
+                        </article>
+                      </a>
+                    </li>
+                  <?php
+                  break;
+                case '2':
+                  ?>
+                    <li class="articles-item articles-item--2">
+                      <a href="<?php the_permalink(); ?>" class="articles-link">
+                        <article class="article">
+                          <img
+                            src="<?php the_post_thumbnail_url(); ?>"
+                            alt="<?php the_title(); ?>"
+                            class="article-image"
+                          />
+                          <div class="article-wrapper">
+                            <span class="article-tag">
+                              <?php $post_tags = get_the_tags();
+                              if ( $post_tags) {
+                                echo $post_tags[0]->name . ' ';
+                              }
+                              ?>
+                            </span>
                             <span class="article-category">
                               <?php
                                 $category = get_the_category();
-                                echo $category[0]->name;?>
-                              </span>
+                                echo $category[0]->name;
+                              ?>
+                            </span>
                             <h3 class="article-title">
-                              <?php echo mb_strimwidth( get_the_title(), 0, 50, ' ...') ; ?>
+                              <?php the_title(); ?>
                             </h3>
-                            <p class="article-text">
-                              <?php echo wp_trim_words( get_the_content(), 15, '...' ); ; ?>
-                            </p>
+                            <footer class="article-footer">
+                              <?php $author_id = get_the_author_meta('ID'); ?>
+                              <img
+                                src="<?php echo get_avatar_url($author_id) ?>"
+                                alt="Автор статьи"
+                                class="article-author-avatar"
+                              />
+                              <div class="footer-wrapper">
+                                <cite class="article-author"><?php the_author(); ?></cite>
+                                <div class="footer-info">
+                                  <span class="article-date"><?php the_time('j F'); ?></span>
+                                  <span class="article-comments"><?php comments_number('0', '1', '%'); ?></span>
+                                  <span class="article-likes"><?php comments_number('0', '1', '%'); ?></span>
+                                </div>
+                              </div>
+                            </footer>
                           </div>
-                          <div class="article-right-column">
+                        </article>
+                      </a>
+                    </li>
+                  <?php
+                  break;
+                case '3':
+                  ?>
+                    <li class="articles-item articles-item--3">
+                      <a href="<?php the_permalink(); ?>" class="articles-link">
+                        <article class="article">
+                          <div class="article-image-wrapper">
                             <img
                               src="<?php the_post_thumbnail_url(); ?>"
                               alt="<?php the_title(); ?>"
                               class="article-image"
                             />
                           </div>
-                        </div>
-                        <footer class="article-footer">
-                          <blockquote>
-                            <?php $author_id = get_the_author_meta('ID'); ?>
-                            <img
-                              src="<?php echo get_avatar_url($author_id) ?>"
-                              alt="Автор статьи"
-                              class="article-author-avatar"
-                            />
-                            <cite class="article-author"><?php the_author(); ?>:</cite>
-                            <p class="article-author-quote">
-                              <?php echo mb_strimwidth( get_the_author_meta('description'), 0, 40, ' ...') ; ?>
-                            </p>
-                          </blockquote>
-                          <span class="article-comments">
-                            <?php comments_number('0', '1', '%'); ?>
-                          </span>
-                        </footer>
-                      </article>
-                    </a>
-                  </li>
-                <?php
-                break;
-
-              case '2':
-                ?>
-                  <li class="articles-item articles-item--2">
-                    <a href="<?php the_permalink(); ?>" class="articles-link">
-                      <article class="article">
-                        <img
-                          src="<?php the_post_thumbnail_url(); ?>"
-                          alt="<?php the_title(); ?>"
-                          class="article-image"
-                        />
-                        <div class="article-wrapper">
-                          <span class="article-tag">
-                            <?php $post_tags = get_the_tags();
-                            if ( $post_tags) {
-                              echo $post_tags[0]->name . ' ';
-                            }
-                            ?>
-                          </span>
-                          <span class="article-category">
-                            <?php
-                              $category = get_the_category();
-                              echo $category[0]->name;
-                            ?>
-                          </span>
-                          <h3 class="article-title">
-                            <?php the_title(); ?>
-                          </h3>
-                          <footer class="article-footer">
-                            <?php $author_id = get_the_author_meta('ID'); ?>
-                            <img
-                              src="<?php echo get_avatar_url($author_id) ?>"
-                              alt="Автор статьи"
-                              class="article-author-avatar"
-                            />
-                            <div class="footer-wrapper">
-                              <cite class="article-author"><?php the_author(); ?></cite>
-                              <div class="footer-info">
-                                <span class="article-date"><?php the_time('j F'); ?></span>
-                                <span class="article-comments"><?php comments_number('0', '1', '%'); ?></span>
-                                <span class="article-likes"><?php comments_number('0', '1', '%'); ?></span>
-                              </div>
-                            </div>
-                          </footer>
-                        </div>
-                      </article>
-                    </a>
-                  </li>
-                <?php
-                break;
-              case '3':
-                ?>
-                  <li class="articles-item articles-item--3">
-                    <a href="<?php the_permalink(); ?>" class="articles-link">
-                      <article class="article">
-                        <div class="article-image-wrapper">
-                          <img
-                            src="<?php the_post_thumbnail_url(); ?>"
-                            alt="<?php the_title(); ?>"
-                            class="article-image"
-                          />
-                        </div>
-                        <h3 class="article-title"><?php the_title(); ?></h3>
-                      </article>
-                    </a>
-                  </li>
-                <?php
-                break;
-
-              default:
-                ?>
-                  <li class="articles-item articles-item--default">
-                    <a href="<?php the_permalink(); ?>" class="articles-link">
-                      <article class="article">
-                        <h3 class="article-title"><?php the_title(); ?></h3>
-                        <p class="article-text">
-                          <?php echo wp_trim_words( get_the_content(), 8, '...' ); ; ?>
-                        </p>
-                        <span class="article-date"><?php the_time('j F'); ?></span>
-                      </article>
-                    </a>
-                  </li>
-                <?php
-                break;
+                          <h3 class="article-title"><?php the_title(); ?></h3>
+                        </article>
+                      </a>
+                    </li>
+                  <?php
+                  break;
+                default:
+                  ?>
+                    <li class="articles-item articles-item--default">
+                      <a href="<?php the_permalink(); ?>" class="articles-link">
+                        <article class="article">
+                          <h3 class="article-title"><?php the_title(); ?></h3>
+                          <p class="article-text">
+                            <?php echo wp_trim_words( get_the_content(), 8, '...' ); ; ?>
+                          </p>
+                          <span class="article-date"><?php the_time('j F'); ?></span>
+                        </article>
+                      </a>
+                    </li>
+                  <?php
+                  break;
+              }
+              ?>
+              <?php
             }
+          } else {
             ?>
+              <p>Постов нет</p>
             <?php
           }
-        } else {
+          wp_reset_postdata(); // Сбрасываем $post
           ?>
-            <p>Постов нет</p>
-          <?php
-        }
-
-        wp_reset_postdata(); // Сбрасываем $post
-        ?>
-      </ul>
-    </section>
+        </ul>
+      </section>
+      <!-- Подключаем сайдбар -->
+      <?php get_sidebar(); ?>
+    </div>
   </div>
   <!-- /.container -->
 </main>
