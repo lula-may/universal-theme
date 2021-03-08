@@ -22,13 +22,20 @@ body {
   line-height: 20px;
 }
 
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .container {
   max-width: 1140px;
   width: 90%;
   margin: auto;
 }
 
-.container .hidden {
+.hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -778,14 +785,41 @@ body {
   margin-left: 30px;
 }
 
+.widget {
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.widget-title {
+  margin: 0;
+  padding: 20px 25px;
+  font-size: 14px;
+  line-height: 1.429;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #D9DADB;
+}
+
 .widget-downloader {
   padding-top: 25px;
   color: #ffffff;
   background-color: #3BBDC4;
-  border-radius: 10px;
   background-image: url("../images/file.svg");
   background-repeat: no-repeat;
   background-position: right 25px top 20px;
+}
+
+.widget-downloader .widget-title {
+  padding: 0 25px;
+  font-family: Roboto Slab, Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.563;
+  letter-spacing: 0;
+  text-transform: none;
+  border: none;
 }
 
 .widget-downloader .widget-description {
@@ -820,11 +854,85 @@ body {
   background-size: cover;
 }
 
-.widget-title {
-  margin: 0;
-  padding: 0 25px;
+.widget_tag_cloud {
+  color: #262D33;
+}
+
+.widget_tag_cloud .tagcloud {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 25px 15px 15px 25px;
+}
+
+.widget_tag_cloud .tag-cloud-link {
+  padding: 5px 15px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.429;
+  font-weight: 900;
+  text-decoration: none;
+  color: inherit;
+  text-transform: capitalize;
+  border: 1px solid #D9DADB;
+  border-radius: 5px;
+}
+
+.widget_social {
+  color: #262D33;
+  text-align: center;
+}
+
+.widget_social .widget-title {
+  padding: 30px 25px 25px;
   font-family: Roboto Slab, Georgia, serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 1.563;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: none;
+  border: none;
+}
+
+.widget_social .widget_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0 15px 40px;
+}
+
+.widget_social .widget_social-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #1DA1F2;
+}
+
+.widget_social .widget_social-link--facebook {
+  background-color: #4267B2;
+}
+
+.widget_social .widget_social-link--youtube {
+  background-color: #FF0000;
+}
+
+.widget_social .widget_social-link--instagram {
+  background-color: #262626;
 }

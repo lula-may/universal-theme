@@ -2,14 +2,38 @@
   width: calc(25% - 15px)
   margin-left: 30px
 
+.widget
+  margin-bottom: 30px
+  background-color: #ffffff
+  border-radius: 10px
+
+.widget-title
+  margin: 0
+  padding: 20px 25px
+  font-size: 14px
+  line-height: 1.429
+  font-weight: 900
+  letter-spacing: 0.5px
+  text-transform: uppercase
+  border-bottom: 1px solid #D9DADB
+
 .widget-downloader
   padding-top: 25px
   color: #ffffff
   background-color: #3BBDC4
-  border-radius: 10px
   background-image: url('../images/file.svg')
   background-repeat: no-repeat
   background-position: right 25px top 20px
+  .widget-title
+    padding: 0 25px
+    font-family: Roboto Slab, Georgia, serif
+    font-size: 16px
+    font-weight: 700
+    line-height: 1.563
+    letter-spacing: 0
+    text-transform: none
+    border: none
+
   .widget-description
     margin: 10px 25px 20px
     font-weight: 400
@@ -34,10 +58,57 @@
       background-position: center
       background-size: cover
 
-.widget-title
-  margin: 0
-  padding: 0 25px
-  font-family: Roboto Slab, Georgia, serif
-  font-size: 16px
-  font-weight: 700
-  line-height: 1.563
+.widget_tag_cloud
+  color: #262D33
+
+  .tagcloud
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    padding: 25px 15px 15px 25px
+  .tag-cloud-link
+    padding: 5px 15px
+    margin-right: 10px
+    margin-bottom: 15px
+    font-size: 14px
+    line-height: 1.429
+    font-weight: 900
+    text-decoration: none
+    color: inherit
+    text-transform: capitalize
+    border: 1px solid #D9DADB
+    border-radius: 5px
+
+.widget_social
+  color: #262D33
+  text-align: center
+
+  .widget-title
+    padding: 30px 25px 25px
+    font-family: Roboto Slab, Georgia, serif
+    font-size: 20px
+    font-weight: 700
+    line-height: 1.25
+    letter-spacing: 0
+    text-transform: none
+    border: none
+
+  .widget_content
+    display: flex
+    justify-content: space-around
+    padding: 0 15px 40px
+  .widget_social-link
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    &--facebook
+      background-color: #4267B2
+    &--twitter
+    background-color: #1DA1F2
+    &--youtube
+      background-color: #FF0000
+    &--instagram
+      background-color: #262626
