@@ -37,7 +37,7 @@
         <div class="post-text">
           <?php the_category() ?>
           <h2 class="post-title"><?php the_title(); ?></h2>
-          <a href="<?php echo get_the_permalink(); ?>" class="post-more"
+          <a href="<?php echo get_the_permalink(); ?>" class="show-more"
             >Читать далее</a
           >
         </div>
@@ -96,9 +96,12 @@
           global $post;
 
           $myposts = get_posts([
-            'numberposts' =>
-        4, 'category_name' => 'articles' ]); if( $myposts ){ foreach( $myposts
-        as $post ){ setup_postdata( $post ); ?>
+            'numberposts' => 4,
+            'category_name' => 'articles' ]);
+          if( $myposts ){
+            foreach( $myposts as $post ){
+              setup_postdata( $post );
+        ?>
         <!-- Выводим записи -->
         <li class="articles-bar-item">
           <a
@@ -140,7 +143,8 @@
           $query = new WP_Query( [
             'posts_per_page' => 7,
             'orderby'        => 'comment_count',
-            'tag'            => 'popular'
+            'tag'            => 'popular',
+            'category__not_in' => 27
           ] );
             // Проверяем есть ли посты
           if ( $query->have_posts() ) {
@@ -301,4 +305,101 @@
     </div>
   </div>
   <!-- /.container -->
+  <?php
+    global $post;
+
+    $query = new WP_Query( [
+      'posts_per_page' => 1,
+      'category_name'  => 'investigation',
+    ] );
+
+    if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) {
+        $query->the_post();
+        ?>
+        <section class="investigation" style="
+        background-image: linear-gradient(to bottom, rgba(64, 48, 61, 0.45), rgba(64, 48, 61, 0.45)),
+        url(<?php echo get_the_post_thumbnail_url() ?>);
+        background-repeat: no-repeat;
+        background-position: center;">
+          <div class="container">
+            <h2 class="investigation-title"><?php the_title() ?></h2>
+            <a href="<?php echo get_the_permalink() ?>" class="show-more">Читать статью</a>
+          </div>
+        </section>
+        <?php
+      }
+    } else {
+      ?>
+        <p>Постов нет</p>
+      <?php
+    }
+
+    wp_reset_postdata(); // Сбрасываем $post
+  ?>
+
+  <!-- Блок с новостями и мнениями -->
+  <div class="container">
+    <div class="main-grid">
+      <section class="news">
+        <ul class="news-list">
+        <?php
+          global $post;
+
+          $myposts = get_posts([
+            'numberposts' => 6,
+            'category_name' => 'news, opinions, hot, collection',
+            'orderby' => 'date',
+            'order' => 'ASC',
+          ]);
+
+          if( $myposts ){
+            foreach( $myposts as $post ){
+              setup_postdata( $post );
+              ?>
+              <li class="news-item">
+                <a href="<?php the_permalink(); ?>" class="news-link">
+                  <article class="news-card">
+                    <div class="news-image-column">
+                      <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                    </div>
+                    <div class="news-text-column">
+                      <span class="news-category">
+                        <?php
+                          $category = get_the_category();
+                          echo $category[0]->name;
+                        ?>
+                      </span>
+                      <h3 class="news-title">
+                        <?php echo mb_strimwidth( get_the_title(), 0, 70, ' ...'); ?>
+                      </h3>
+                      <p class="news-text">
+                        <?php echo wp_trim_words( get_the_content(), 25, '...' ); ?>
+                      </p>
+                      <footer class="news-footer">
+                        <div class="footer-info">
+                          <span class="article-date"><?php the_time('j F'); ?></span>
+                          <span class="article-comments"><?php comments_number('0', '1', '%'); ?></span>
+                          <span class="article-likes"><?php comments_number('0', '1', '%'); ?></span>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </a>
+              </li>
+              <?php
+            }
+          } else {
+            ?>
+            <p>Постов нет</p>
+            <?php
+          }
+
+          wp_reset_postdata(); // Сбрасываем $post
+        ?>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <!-- ./container -->
 </main>

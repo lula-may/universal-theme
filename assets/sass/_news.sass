@@ -1,0 +1,73 @@
+.news
+  width: calc( 75% - 15px )
+  margin-bottom: 60px
+  background-color: #ffffff
+  border-radius: 10px
+  overflow: hidden
+
+.news-list
+  margin: 0
+  padding: 0 25px
+  list-style: none
+
+.news-item
+  padding: 25px 0 24px
+  border-bottom: 1px solid #D9DADB
+  &:last-child
+    border-bottom: none
+.news-link
+  text-decoration: none
+  color: inherit
+  &:hover,
+  &:focus,
+  &:visited
+    color: inherit
+.news-card
+  display: flex
+  justify-content: space-between
+
+.news-image-column
+  width: 336px
+  min-height: 100%
+  margin-right: 25px
+  flex-shrink: 0
+  display: flex
+  justify-content: center
+  overflow: hidden
+  img
+    object-fit: cover
+.news-text-column
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+  padding: 5px 0
+.news-category
+  font-size: 12px
+  line-height: 1.25
+  font-weight: 900
+  letter-spacing: 0.5px
+  color: #4592FF
+  text-transform: uppercase
+.news-title
+  margin: 15px 0 10px
+  font-family: Roboto Slab, Georgia, serif
+  font-size: 20px
+  line-height: 1.25
+  font-weight: 700
+  color: #262D33
+.news-text
+  margin: 0
+  padding: 0
+  color: #4B5157
+
+.news-footer
+  margin-top: auto
+  .article-date,
+  .article-comments
+    margin-right: 11px
+  .article-comments::after
+      background-image: url('../images/comment.svg')
+      background-position: center
+  .article-likes::after
+    background-image: url('../images/heart-grey.svg')
+    background-position: center
