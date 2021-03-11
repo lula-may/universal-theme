@@ -15,7 +15,7 @@
         $myposts ){ foreach( $myposts as $post ){
           setup_postdata($post ); ?>
 
-        <!-- Вывода постов -->
+        <!-- Вывод постов -->
         <img
           src="<?php the_post_thumbnail_url(); ?>"
           alt="<?php the_title(); ?>"
@@ -35,7 +35,16 @@
         </a>
 
         <div class="post-text">
-          <?php the_category() ?>
+          <?php
+            foreach(get_the_category() as $category) {
+              printf(
+                '<a href="%s" class="category-name category-name--%s">%s</a>',
+                esc_url( get_category_link( $category ) ),
+                esc_html( $category -> slug ),
+                esc_html( $category -> name )
+              );
+            }
+          ?>
           <h2 class="post-title"><?php the_title(); ?></h2>
           <a href="<?php echo get_the_permalink(); ?>" class="show-more"
             >Читать далее</a
@@ -69,7 +78,16 @@
 
           <!-- Вывода постов -->
           <li class="post">
-            <?php the_category(); ?>
+            <?php
+              foreach(get_the_category() as $category) {
+                printf(
+                  '<a href="%s" class="category-name category-name--%s">%s</a>',
+                  esc_url(get_category_link( $category )),
+                  esc_html($category -> slug),
+                  esc_html($category -> name)
+                );
+              }
+            ?>
             <a class="post-permalink" href="<?php get_the_permalink(); ?>">
               <h4 class="post-title">
                 <?php echo mb_strimwidth( get_the_title(), 0, 50, '...') ; ?>
@@ -163,11 +181,14 @@
                         <article class="article">
                           <div class="article-content">
                             <div class="article-left-column">
-                              <span class="article-category">
-                                <?php
-                                  $category = get_the_category();
-                                  echo $category[0]->name;?>
-                                </span>
+                              <?php
+                                $category = get_the_category();
+                                printf(
+                                  '<span class="category-name category-name--%s">%s</span>',
+                                  $category[0] -> slug,
+                                  $category[0] -> name
+                                );
+                              ?>
                               <h3 class="article-title">
                                 <?php echo mb_strimwidth( get_the_title(), 0, 50, ' ...') ; ?>
                               </h3>
@@ -223,12 +244,14 @@
                               }
                               ?>
                             </span>
-                            <span class="article-category">
                               <?php
                                 $category = get_the_category();
-                                echo $category[0]->name;
+                                printf(
+                                  '<span class="category-name category-name--%s">%s</span>',
+                                  $category[0] -> slug,
+                                  $category[0] -> name
+                                );
                               ?>
-                            </span>
                             <h3 class="article-title">
                               <?php the_title(); ?>
                             </h3>
@@ -364,12 +387,14 @@
                       <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                     </div>
                     <div class="news-text-column">
-                      <span class="news-category">
-                        <?php
-                          $category = get_the_category();
-                          echo $category[0]->name;
-                        ?>
-                      </span>
+                      <?php
+                        $category = get_the_category();
+                        printf(
+                          '<span class="category-name category-name--%s">%s</span>',
+                          $category[0] -> slug,
+                          $category[0] -> name
+                        );
+                      ?>
                       <h3 class="news-title">
                         <?php echo mb_strimwidth( get_the_title(), 0, 70, ' ...'); ?>
                       </h3>
