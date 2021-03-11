@@ -1,1 +1,7 @@
+# Файлы и папки операционной системы
+.DS_Store
+Thumbs.db
 
+# Файлы редактора
+.vscode
+workspace.code-workspace
