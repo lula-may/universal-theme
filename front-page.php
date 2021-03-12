@@ -324,7 +324,7 @@
         </ul>
       </section>
       <!-- Подключаем сайдбар -->
-      <?php get_sidebar(); ?>
+      <?php get_sidebar('home-top'); ?>
     </div>
   </div>
   <!-- /.container -->
@@ -424,6 +424,10 @@
         ?>
         </ul>
       </section>
+
+      <!-- Подключаем сайдбар -->
+      <?php get_sidebar('home-bottom'); ?>
+
     </div>
   </div>
   <!-- ./container -->

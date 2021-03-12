@@ -324,6 +324,140 @@ function enqueue_universal_style() {
   wp_enqueue_style('Roboto-Slab', 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 }
 
+/**
+ * Добавление нового виджета Recent_Post_Widget.
+ */
+class Recent_Post_Widget extends WP_Widget {
+
+	// Регистрация виджета используя основной класс
+	function __construct() {
+		// вызов конструктора выглядит так:
+		// __construct( $id_base, $name, $widget_options = array(), $control_options = array() )
+		parent::__construct(
+			'recent_post_widget', // ID виджета, если не указать (оставить ''), то ID будет равен названию класса в нижнем регистре: Recent_Post_Widget
+			'Недавно опубликовано',
+			array( 'description' => 'Последние посты', 'classname' => 'widget_recent-post' )
+		);
+
+		// скрипты/стили виджета, только если он активен
+		if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
+			add_action('wp_enqueue_scripts', array( $this, 'add_recent_post_widget_scripts' ));
+			add_action('wp_head', array( $this, 'add_recent_post_widget_style' ) );
+		}
+	}
+
+	/**
+	 * Вывод виджета во Фронт-энде
+	 *
+	 * @param array $args     аргументы виджета.
+	 * @param array $instance сохраненные данные из настроек
+	 */
+	function widget( $args, $instance ) {
+		$title = $instance['title'];
+		$count = $instance['count'];
+
+		echo $args['before_widget'];
+		if ( ! empty( $count) ) {
+			if ( ! empty( $title ) ) {
+				echo $args['before_title'] . $title . $args['after_title'];
+			}
+			echo '<div class="recent-post-wrapper">';
+			global $post;
+			$postslist = get_posts( array( 'posts_per_page' => $count, 'order'=> 'ASC', 'orderby' => 'title' ) );
+			foreach ( $postslist as $post ){
+				setup_postdata($post);
+				?>
+				<a href="<?php get_the_permalink()?>" class="recent-post-link">
+					<img src="<?php echo get_the_post_thumbnail_url(null, 'thumbnail')?>" alt="<?php the_title() ?>">
+					<div class="recent-post-info">
+						<h4 class="recent-post-title">
+            <?php echo mb_strimwidth( get_the_title(), 0, 33, '...') ; ?>
+            </h4>
+						<span class="recent-post-time">
+							<?php $time_diff = human_time_diff( get_post_time('U'), current_time('timestamp') );
+								echo "$time_diff назад";
+							?>
+						</span>
+					</div>
+				</a>
+				<?php
+			}
+			echo '</div><a class="recent-post-more" href="#">Read more</a>';
+			wp_reset_postdata();
+		}
+  }
+
+	/**
+	 * Админ-часть виджета
+	 *
+	 * @param array $instance сохраненные данные из настроек
+	 */
+	function form( $instance ) {
+		$title = @ $instance['title'] ?: 'Недавно опубликовано';
+    $count = @ $instance['count'] ?: '7';
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Заголовок:' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Количество постов:' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>">
+		</p>
+		<?php
+	}
+
+	/**
+	 * Сохранение настроек виджета. Здесь данные должны быть очищены и возвращены для сохранения их в базу данных.
+	 *
+	 * @see WP_Widget::update()
+	 *
+	 * @param array $new_instance новые настройки
+	 * @param array $old_instance предыдущие настройки
+	 *
+	 * @return array данные которые будут сохранены
+	 */
+	function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['count'] = ( ! empty( $new_instance['count'] ) ) ? strip_tags( $new_instance['count'] ) : '';
+
+		return $instance;
+	}
+
+	// скрипт виджета
+	function add_recent_post_widget_scripts() {
+		// фильтр чтобы можно было отключить скрипты
+		if( ! apply_filters( 'show_recent_post_widget_script', true, $this->id_base ) )
+			return;
+
+		$theme_url = get_stylesheet_directory_uri();
+
+		wp_enqueue_script('my_widget_script', $theme_url .'/my_widget_script.js' );
+	}
+
+	// стили виджета
+	function add_recent_post_widget_style() {
+		// фильтр чтобы можно было отключить стили
+		if( ! apply_filters( 'show_recent_post_widget_style', true, $this->id_base ) )
+			return;
+		?>
+		<style type="text/css">
+			.my_widget a{ display:inline; }
+		</style>
+		<?php
+	}
+
+}
+// конец класса Recent_Post_Widget
+
+// регистрация recent_post_widget в WordPress
+function register_recent_post_widget() {
+	register_widget( 'Recent_Post_Widget' );
+}
+add_action( 'widgets_init', 'register_recent_post_widget' );
+
+
 // Изменяем настройки облака тегов
 add_filter('widget_tag_cloud_args', 'edit_widget_tag_cloud_args');
 function edit_widget_tag_cloud_args( $args ){

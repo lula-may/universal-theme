@@ -818,7 +818,7 @@ body {
 
 .widget-title {
   margin: 0;
-  padding: 20px 25px;
+  padding: 20px 25px 19px;
   font-size: 14px;
   line-height: 1.429;
   font-weight: 900;
@@ -892,7 +892,7 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  padding: 25px 15px 15px 25px;
+  padding: 22px 15px 12px 25px;
 }
 
 .widget_tag_cloud .tag-cloud-link {
@@ -960,6 +960,75 @@ body {
 
 .widget_social .widget_social-link--instagram {
   background-color: #262626;
+}
+
+.widget_recent-post .recent-post-more {
+  display: block;
+  padding: 11px 0 14px;
+  color: #262D33;
+  font-weight: 900;
+  text-decoration: none;
+  text-align: center;
+  border-top: 1px solid #D9DADB;
+}
+
+.widget_recent-post .recent-post-more:visited {
+  color: #262D33;
+}
+
+.recent-post-wrapper {
+  padding: 0 25px;
+  counter-reset: cnt;
+}
+
+.recent-post-wrapper .recent-post-link {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 17px 0;
+  text-decoration: none;
+  color: #4B5157;
+  border-bottom: 1px solid #D9DADB;
+}
+
+.recent-post-wrapper .recent-post-link:last-child {
+  border-bottom: none;
+}
+
+.recent-post-wrapper .recent-post-link::before {
+  counter-increment: cnt;
+  content: counter(cnt);
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  font-size: 70px;
+  line-height: 1;
+  font-weight: 900;
+  font-style: italic;
+  color: rgba(38, 45, 51, 0.08);
+}
+
+.recent-post-wrapper img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.recent-post-title {
+  margin: 0 0 5px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+}
+
+.recent-post-time {
+  font-size: 12px;
+  line-height: 1.25;
+  color: #939699;
 }
 
 .investigation {
