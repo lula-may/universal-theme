@@ -1,0 +1,83 @@
+.special
+  background-color: #262D33
+
+.special-grid
+  display: flex
+  justify-content: space-between
+  padding-top: 60px
+  padding-bottom: 60px
+.photo-report,
+.other
+  width: calc(50% - 15px)
+  min-height: 570px
+.photo-report
+  position: relative
+  background-color: #575557
+  border-radius: 10px
+  overflow: hidden
+  .category-link
+    align-self: flex-start
+    padding: 5px 12px
+    font-size: 12px
+    font-weight: 400
+    line-height: 1.25
+    color: #ffffff
+    text-decoration: none
+    background-color: #3DC47E
+    border-radius: 3px
+  .button-photo
+    .icon
+      margin-left: 0
+      margin-right: 8px
+  .button-photo-counter
+    margin-left: 8px
+    font-weight: normal
+  .author
+    margin-top: 7px
+    text-decoration: none
+    color: #ffffff
+  .author-avatar
+    width: 45px
+    height: 45px
+    border-radius: 50%
+  .author-name
+    display: block
+    margin-top: 8px
+    margin-bottom: 2px
+  .author-rank
+    font-size: 12px
+    line-height: 1.25
+    opacity: 0.3
+.photo-report-title
+  margin: 30px auto 45px
+  max-width: 455px
+  font-family: Roboto Slab, Georgia, serif
+  font-size: 40px
+  font-weight: 700
+  line-height: 1.25
+  color: #ffffff
+
+.photo-report-slider
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 0
+  width: 100%
+  height: 100%
+  .swiper-slide
+    width: 100%
+    height: inherit
+    img
+      height: 100%
+      width: 100%
+      object-fit: cover
+.photo-report-content
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  height: 100%
+  padding: 18px
+  text-align: center
+  background-image: linear-gradient(0deg, rgba(64, 48, 61, 0.35), rgba(64, 48, 61, 0.35))
+  background-repeat: no-repeat

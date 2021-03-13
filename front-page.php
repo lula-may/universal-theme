@@ -17,10 +17,17 @@
 
         <!-- Вывод постов -->
         <img
-          src="<?php the_post_thumbnail_url(); ?>"
+          src="<?php
+            if( has_post_thumbnail() ) {
+              echo get_the_post_thumbnail_url();
+            }
+            else {
+              echo get_template_directory_uri().'/assets/images/img-default.png"';
+            } ?>"
           alt="<?php the_title(); ?>"
           class="post-thumb"
         />
+
         <?php $author_id = get_the_author_meta('ID'); ?>
         <a href="<?php echo get_author_posts_url($author_id) ?>" class="author">
           <img
@@ -137,7 +144,13 @@
           <img
             width="65"
             height="65"
-            src="<?php echo get_the_post_thumbnail_url(null, 'homepage-thumb'); ?>"
+            src="<?php
+              if( has_post_thumbnail() ) {
+                echo get_the_post_thumbnail_url(null, 'thumbnail');
+              }
+              else {
+                echo get_template_directory_uri().'/assets/images/img-default.png"';
+              } ?>"
             alt="<?php the_title(); ?>"
           />
         </li>
@@ -201,8 +214,13 @@
                               </p>
                             </div>
                             <div class="article-right-column">
-                              <img
-                                src="<?php the_post_thumbnail_url(); ?>"
+                              <img src="<?php
+                                if( has_post_thumbnail() ) {
+                                  echo get_the_post_thumbnail_url();
+                                }
+                                else {
+                                  echo get_template_directory_uri().'/assets/images/img-default.png"';
+                                } ?>"
                                 alt="<?php the_title(); ?>"
                                 class="article-image"
                               />
@@ -240,7 +258,13 @@
                       <a href="<?php the_permalink(); ?>" class="articles-link">
                         <article class="article">
                           <img
-                            src="<?php the_post_thumbnail_url(); ?>"
+                            src="<?php
+                              if( has_post_thumbnail() ) {
+                                echo get_the_post_thumbnail_url();
+                              }
+                              else {
+                                echo get_template_directory_uri().'/assets/images/img-default.png"';
+                              } ?>"
                             alt="<?php the_title(); ?>"
                             class="article-image"
                           />
@@ -301,8 +325,13 @@
                       <a href="<?php the_permalink(); ?>" class="articles-link">
                         <article class="article">
                           <div class="article-image-wrapper">
-                            <img
-                              src="<?php the_post_thumbnail_url(); ?>"
+                            <img src="<?php
+                              if( has_post_thumbnail() ) {
+                                echo get_the_post_thumbnail_url();
+                              }
+                              else {
+                                echo get_template_directory_uri().'/assets/images/img-default.png"';
+                              } ?>"
                               alt="<?php the_title(); ?>"
                               class="article-image"
                             />
@@ -407,7 +436,15 @@
                 <a href="<?php the_permalink(); ?>" class="news-link">
                   <article class="news-card">
                     <div class="news-image-column">
-                      <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                      <img src="
+                      <?php
+                        if( has_post_thumbnail() ) {
+                          echo get_the_post_thumbnail_url();
+                        }
+                        else {
+                          echo get_template_directory_uri().'/assets/images/img-default.png"';
+                        }
+                      ?>" alt="<?php the_title(); ?>" />
                     </div>
                     <div class="news-text-column">
                       <?php
@@ -482,40 +519,56 @@
               $query->the_post();
               ?>
               <div class="photo-report">
-                <img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title() ?>" class="photo-report-thumb">
-                <?php
-                  foreach(get_the_category() as $category) {
-                    printf(
-                      '<a href="%s" class="category-name category-name--%s">%s</a>',
-                      esc_url( get_category_link( $category ) ),
-                      esc_html( $category -> slug ),
-                      esc_html( $category -> name )
-                    );
-                  }
-                ?>
-
-                <?php $author_id = get_the_author_meta('ID'); ?>
-                <a href="<?php echo get_author_posts_url($author_id) ?>" class="author">
-                  <img
-                    src="<?php echo get_avatar_url($author_id) ?>"
-                    alt="Автор поста"
-                    class="author-avatar"
-                  />
-                  <div class="author-bio">
-                    <span class="author-name"><?php the_author(); ?></span>
-                    <span class="author-rank">Фотограф</span>
+                <!-- Slider main container -->
+                <div class="swiper-container photo-report-slider">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <?php
+                    $images = get_attached_media( 'image' );
+                      foreach( $images as $image ){
+                        $image_url = $image->guid;
+                          echo '<div class="swiper-slide"><img src="'. $image_url .'" /></div>';
+                      }
+                    ?>
                   </div>
-                </a>
+                  <!-- If we need pagination -->
+                  <div class="swiper-pagination"></div>
+                </div>
+                <div class=" photo-report-content">
+                  <?php
+                    foreach(get_the_category() as $category) {
+                      printf(
+                        '<a href="%s" class="category-link">%s</a>',
+                        esc_url( get_category_link( $category ) ),
+                        esc_html( $category -> name )
+                      );
+                    }
+                  ?>
 
-                <h3 class="photo-report-title"><?php the_title() ?></h3>
-                <a href="<?php echo get_the_permalink() ?>" class="button button-photo">
-                  <svg class="icon" width="19" height="15">
-                    <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#photo' ?>">
-                    </use>
-                  </svg>
-                  Смотреть фото
-                  <span class="button-photo-counter">26</span>
-                </a>
+                  <?php $author_id = get_the_author_meta('ID'); ?>
+                  <a href="<?php echo get_author_posts_url($author_id) ?>" class="author">
+                    <img
+                      src="<?php echo get_avatar_url($author_id) ?>"
+                      alt="Автор поста"
+                      class="author-avatar"
+                    />
+                    <div class="author-bio">
+                      <span class="author-name"><?php the_author(); ?></span>
+                      <span class="author-rank">Фотограф</span>
+                    </div>
+                  </a>
+
+                  <h3 class="photo-report-title"><?php the_title() ?></h3>
+                  <a href="<?php echo get_the_permalink() ?>" class="button button-photo">
+                    <svg class="icon" width="19" height="15">
+                      <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#photo' ?>">
+                      </use>
+                    </svg>
+                    Смотреть фото
+                    <span class="button-photo-counter"><?php echo count($images) ?></span>
+                  </a>
+                </div>
               </div>
               <?php
             }
@@ -544,3 +597,4 @@
   </section>
   <!-- ./special -->
 </main>
+<?php wp_footer(); ?>
