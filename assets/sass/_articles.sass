@@ -54,6 +54,8 @@
       border-bottom: 1px solid #D9DADB
     .article-comments
       color: #939699
+      .icon
+        vertical-align: top
     .article-left-column
       padding-left: 35px
       padding-right: 15px
@@ -67,9 +69,8 @@
       img
         max-width: 100%
         height: auto
-    .article-comments::after
-      background-image: url('../images/comment.svg')
-
+    .footer-info
+      justify-content: space-between
   &--2
     position: relative
     grid-column: 3
@@ -115,8 +116,6 @@
       background-color: #3DC47E
       border-radius: 3px
       text-transform: capitalize
-    // .article-category
-    //   color: #E7D9FF
     .article-footer
       width: 100%
       margin-top: 27px
@@ -131,14 +130,11 @@
       width: 45px
       height: 45px
     .footer-info
-      display: flex
       justify-content: space-between
-      width: 100%
-      font-size: 12px
-      line-height: 1.25
+      color: inherit
       opacity: 0.4
-    .article-comments::after
-      background-image: url('../images/comment-white.svg')
+    .icon
+      margin-right: 5px
 
   &--3
     grid-column: 1
@@ -215,24 +211,17 @@
 
 .article-comments,
 .article-likes
-  position: relative
-  padding-left: 20px
   font-size: 12px
   line-height: 1.25
-  &::after
-    content: ''
-    position: absolute
-    top: -1px
-    left: 0
-    width: 15px
-    height: 15px
-    background-repeat: no-repeat
-    background-position: center
-    background-size: cover
+  .icon
+    vertical-align: middle
+.footer-info
+  display: flex
+  width: 100%
+  color: #939699
+  font-size: 12px
+  line-height: 1.25
 
-.article-likes::after
-  top: -2px
-  background-image: url('../images/heart.svg')
 
 
 

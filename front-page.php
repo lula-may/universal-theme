@@ -46,8 +46,12 @@
             }
           ?>
           <h2 class="post-title"><?php the_title(); ?></h2>
-          <a href="<?php echo get_the_permalink(); ?>" class="show-more"
-            >Читать далее</a
+          <a href="<?php echo get_the_permalink(); ?>" class="button">
+            Читать далее
+            <svg class="icon" width="19" height="16">
+              <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#arrow' ?>"></use>
+            </svg>
+          </a
           >
         </div>
         <?php
@@ -218,6 +222,10 @@
                               </p>
                             </blockquote>
                             <span class="article-comments">
+                              <svg class="icon" width="15" height="15">
+                                <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#comment' ?>">
+                                </use>
+                              </svg>
                               <?php comments_number('0', '1', '%'); ?>
                             </span>
                           </footer>
@@ -266,8 +274,18 @@
                                 <cite class="article-author"><?php the_author(); ?></cite>
                                 <div class="footer-info">
                                   <span class="article-date"><?php the_time('j F'); ?></span>
-                                  <span class="article-comments"><?php comments_number('0', '1', '%'); ?></span>
-                                  <span class="article-likes"><?php comments_number('0', '1', '%'); ?></span>
+                                  <span class="article-comments">
+                                    <svg class="icon" width="15" height="15">
+                                      <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#comment' ?>">
+                                      </use>
+                                    </svg>
+                                    <?php comments_number('0', '1', '%'); ?></span>
+                                    <span class="article-likes">
+                                      <svg class="icon" width="15" height="15">
+                                        <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#heart' ?>">
+                                        </use>
+                                      </svg>
+                                    <?php comments_number('0', '1', '%'); ?></span>
                                 </div>
                               </div>
                             </footer>
@@ -347,7 +365,12 @@
         background-position: center;">
           <div class="container">
             <h2 class="investigation-title"><?php the_title() ?></h2>
-            <a href="<?php echo get_the_permalink() ?>" class="show-more">Читать статью</a>
+            <a href="<?php echo get_the_permalink() ?>" class="button">
+            Читать статью
+            <svg class="icon" width="19" height="16">
+              <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#arrow' ?>"></use>
+            </svg>
+          </a>
           </div>
         </section>
         <?php
@@ -404,8 +427,18 @@
                       <footer class="news-footer">
                         <div class="footer-info">
                           <span class="article-date"><?php the_time('j F'); ?></span>
-                          <span class="article-comments"><?php comments_number('0', '1', '%'); ?></span>
-                          <span class="article-likes"><?php comments_number('0', '1', '%'); ?></span>
+                          <span class="article-comments">
+                            <svg class="icon" width="15" height="15">
+                              <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#comment' ?>">
+                              </use>
+                            </svg>
+                            <?php comments_number('0', '1', '%'); ?></span>
+                            <span class="article-likes">
+                            <svg class="icon" width="15" height="15">
+                              <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#heart' ?>">
+                              </use>
+                            </svg>
+                            <?php comments_number('0', '1', '%'); ?></span>
                         </div>
                       </footer>
                     </div>
@@ -431,4 +464,83 @@
     </div>
   </div>
   <!-- ./container -->
+
+  <section class="special">
+    <div class="container">
+      <h2 class="hidden">Срециальный раздел Фоторубрика и Карьера</h2>
+      <div class="special-grid">
+        <?php
+          global $post;
+
+          $query = new WP_Query( [
+            'posts_per_page' => 1,
+            'category_name' => 'photoreport'
+          ] );
+
+          if ( $query->have_posts() ) {
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              ?>
+              <div class="photo-report">
+                <img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title() ?>" class="photo-report-thumb">
+                <?php
+                  foreach(get_the_category() as $category) {
+                    printf(
+                      '<a href="%s" class="category-name category-name--%s">%s</a>',
+                      esc_url( get_category_link( $category ) ),
+                      esc_html( $category -> slug ),
+                      esc_html( $category -> name )
+                    );
+                  }
+                ?>
+
+                <?php $author_id = get_the_author_meta('ID'); ?>
+                <a href="<?php echo get_author_posts_url($author_id) ?>" class="author">
+                  <img
+                    src="<?php echo get_avatar_url($author_id) ?>"
+                    alt="Автор поста"
+                    class="author-avatar"
+                  />
+                  <div class="author-bio">
+                    <span class="author-name"><?php the_author(); ?></span>
+                    <span class="author-rank">Фотограф</span>
+                  </div>
+                </a>
+
+                <h3 class="photo-report-title"><?php the_title() ?></h3>
+                <a href="<?php echo get_the_permalink() ?>" class="button button-photo">
+                  <svg class="icon" width="19" height="15">
+                    <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#photo' ?>">
+                    </use>
+                  </svg>
+                  Смотреть фото
+                  <span class="button-photo-counter">26</span>
+                </a>
+              </div>
+              <?php
+            }
+          } else {
+            // Постов не найдено
+          }
+
+          wp_reset_postdata(); // Сбрасываем $post
+        ?>
+        <div class="other">
+          <article class="career">
+            <span class="category-name">Карьера</span>
+            <h3 class="career-title">Вопросы на собеседовании</h3>
+            <p class="career-text">Каверзные и не очень вопросы, которых боятся новички, когда идут на собеседование</p>
+            <a href="#" class="button">
+              Читать далее
+              <svg class="icon" width="19" height="16">
+                <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#arrow' ?>"></use>
+              </svg>
+
+            </a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ./special -->
 </main>

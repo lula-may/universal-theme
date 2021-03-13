@@ -85,7 +85,11 @@ class Downloader_Widget extends WP_Widget {
 			echo '<p class="widget-description">' . $description . '</p>';
 		}
 		if ( ! empty( $link ) ) {
-			echo '<a class="widget-link" href="' . $link . '">Скачать</a>';
+			echo '<a class="widget-link" href="' . $link . '">
+      <svg class="icon" width="17" height="17">
+        <use xlink:href="' . get_template_directory_uri() . '/assets/images/sprite.svg#download"></use>
+      </svg>
+      Скачать</a>';
 		}
 		echo $args['after_widget'];
 	}
