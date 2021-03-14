@@ -211,16 +211,12 @@ body {
   background-color: #e5e5e5;
 }
 
-.front-page-header {
-  position: relative;
-  height: 545px;
+.front-page-main {
+  background-image: linear-gradient(to bottom, #262D33 0, #262D33 545px, #EDEFF0 545px, #EDEFF0 100%);
   padding-top: 30px;
-  background-color: #262D33;
 }
 
 .hero {
-  position: relative;
-  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1343,4 +1339,9 @@ body {
   color: #939699;
   font-size: 12px;
   line-height: 1.25;
+}
+
+.footer {
+  padding: 50px 0 60px;
+  background-color: #ffffff;
 }

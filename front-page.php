@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main class="front-page-header">
+<main class="front-page-main">
   <div class="container">
     <div class="hero">
       <div class="hero-left">
@@ -656,4 +656,4 @@
   </section>
   <!-- ./special -->
 </main>
-<?php wp_footer(); ?>
+<?php get_footer(); ?>
