@@ -593,7 +593,6 @@
             if( $myposts ){
               foreach( $myposts as $post ){
               setup_postdata($post ); ?>
-              <!-- Вывод постов -->
               <span class="category-name category-name--career">Карьера</span>
               <h3 class="career-title"><?php echo mb_strimwidth( get_the_title(), 0, 48, ' ...'); ?></h3>
               <p class="career-text"><?php echo wp_trim_words( get_the_content(), 12, '...' ); ; ?></p>
@@ -613,6 +612,42 @@
             wp_reset_postdata(); // Сбрасываем $post
             ?>
           </article>
+          <!-- ./career -->
+
+          <ul class="other-list">
+            <?php
+            global $post;
+
+            $myposts = get_posts([
+              'numberposts' => 2,
+              'category_name' => 'bez-rubriki'
+            ]);
+
+            if( $myposts ){
+              foreach( $myposts as $post ){
+              setup_postdata($post ); ?>
+
+              <!-- Вывод постов -->
+            <li class="other-post">
+              <h3 class="other-post-title">
+                <?php echo mb_strimwidth( get_the_title(), 0, 24, ' ...'); ?>
+              </h3>
+              <p class="other-post-text">
+                <?php echo wp_trim_words( get_the_content(), 10, '...' ); ?>
+              </p>
+              <span class="other-post-date"><?php the_time('j F'); ?></span>
+            </li>
+
+            <?php
+              }
+            } else {
+              ?>
+              <p>Постов нет</p>
+              <?php
+            }
+            wp_reset_postdata(); // Сбрасываем $post
+            ?>
+          </ul>
         </div>
       </div>
     </div>
