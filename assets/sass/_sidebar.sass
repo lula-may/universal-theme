@@ -1,6 +1,13 @@
 .sidebar-front-page
   width: calc(25% - 15px)
   margin-left: 30px
+  .widget_content
+    justify-content: space-between
+    padding: 0 15px 35px
+  .widget_social-link
+    margin: auto
+    width: 50px
+    height: 50px
 
 .widget
   margin-bottom: 30px
@@ -85,25 +92,27 @@
     text-transform: none
     border: none
 
-  .widget_content
-    display: flex
-    justify-content: space-around
-    padding: 0 15px 35px
-  .widget_social-link
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 50px
-    height: 50px
-    border-radius: 50%
-    &--facebook
-      background-color: #4267B2
-    &--twitter
-    background-color: #1DA1F2
-    &--youtube
-      background-color: #FF0000
-    &--instagram
-      background-color: #262626
+.widget_content
+  display: flex
+  flex-wrap: wrap
+
+.widget_social-link
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-left: 8px
+  margin-right: 8px
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  &--facebook
+    background-color: #4267B2
+  &--twitter
+  background-color: #1DA1F2
+  &--youtube
+    background-color: #FF0000
+  &--instagram
+    background-color: #262626
 
 .widget_recent-post
   .recent-post-more

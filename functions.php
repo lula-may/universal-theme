@@ -45,11 +45,22 @@ function universal_theme_widgets_init() {
     array(
       'name'          => esc_html__( 'Меню в подвале'),
       'id'            => 'footer-sidebar',
-      'description'   => esc_html__('Добавьте меню сюда.'),
+      'description'   => esc_html__('Добавьте меню сюда. Эта область только для меню!'),
       'before_widget' => '<section id="%1$s" class="footer-menu %2$s">',
       'after_widget'  => '</section>',
       'before_title'  => '<h2 class="footer-menu-title">',
       'after_title'   => '</h2>',
+    )
+  );
+  register_sidebar(
+    array(
+      'name'          => esc_html__( 'Текст в подвале'),
+      'id'            => 'footer-text-sidebar',
+      'description'   => esc_html__('Добавьте текст сюда.'),
+      'before_widget' => '<section id="%1$s" class="footer-text %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '',
+      'after_title'   => '',
     )
   );
 }
