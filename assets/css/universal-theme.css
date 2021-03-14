@@ -1319,6 +1319,15 @@ body {
   border-radius: 10px;
 }
 
+.other-post-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.other-post-link:hover, .other-post-link:focus, .other-post-link:visited {
+  color: inherit;
+}
+
 .other-post-title {
   margin: 0;
   font-size: 16px;

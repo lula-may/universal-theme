@@ -629,13 +629,15 @@
 
               <!-- Вывод постов -->
             <li class="other-post">
-              <h3 class="other-post-title">
-                <?php echo mb_strimwidth( get_the_title(), 0, 24, ' ...'); ?>
-              </h3>
-              <p class="other-post-text">
-                <?php echo wp_trim_words( get_the_content(), 10, '...' ); ?>
-              </p>
-              <span class="other-post-date"><?php the_time('j F'); ?></span>
+              <a class="other-post-link" href="<?php the_permalink() ?>">
+                <h3 class="other-post-title">
+                  <?php echo mb_strimwidth( get_the_title(), 0, 24, ' ...'); ?>
+                </h3>
+                <p class="other-post-text">
+                  <?php echo wp_trim_words( get_the_content(), 10, '...' ); ?>
+                </p>
+                <span class="other-post-date"><?php the_time('j F'); ?></span>
+              </a>
             </li>
 
             <?php
