@@ -573,23 +573,45 @@
               <?php
             }
           } else {
-            // Постов не найдено
+            ?>
+            <p>Постов нет</p>
+            <?php
           }
-
           wp_reset_postdata(); // Сбрасываем $post
         ?>
+
         <div class="other">
           <article class="career">
-            <span class="category-name">Карьера</span>
-            <h3 class="career-title">Вопросы на собеседовании</h3>
-            <p class="career-text">Каверзные и не очень вопросы, которых боятся новички, когда идут на собеседование</p>
-            <a href="#" class="button">
-              Читать далее
-              <svg class="icon" width="19" height="16">
-                <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#arrow' ?>"></use>
-              </svg>
+            <?php
+            global $post;
 
-            </a>
+            $myposts = get_posts([
+              'numberposts' => 1,
+              'category_name' => 'career'
+            ]);
+
+            if( $myposts ){
+              foreach( $myposts as $post ){
+              setup_postdata($post ); ?>
+              <!-- Вывод постов -->
+              <span class="category-name category-name--career">Карьера</span>
+              <h3 class="career-title"><?php echo mb_strimwidth( get_the_title(), 0, 48, ' ...'); ?></h3>
+              <p class="career-text"><?php echo wp_trim_words( get_the_content(), 12, '...' ); ; ?></p>
+              <a href="#" class="button">
+                Читать далее
+                <svg class="icon" width="19" height="16">
+                  <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#arrow' ?>"></use>
+                </svg>
+              </a>
+              <?php
+              }
+            } else {
+              ?>
+              <p>Постов нет</p>
+              <?php
+            }
+            wp_reset_postdata(); // Сбрасываем $post
+            ?>
           </article>
         </div>
       </div>
