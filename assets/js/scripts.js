@@ -9,3 +9,9 @@ const swiper = new Swiper(".swiper-container", {
     el: ".swiper-pagination",
   },
 });
+
+const menuToggle = $(".header-menu-toggle");
+menuToggle.on("click", function (evt) {
+  evt.preventDefault();
+  $(".header-nav").slideToggle(200);
+});

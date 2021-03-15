@@ -1,6 +1,6 @@
 .home
-  background-color: #e5e5e5
-.front-page-main
+  background-color: #EDEFF0
+.hero-wrapper
   background-image: linear-gradient(to bottom, #262D33 0, #262D33 545px, #EDEFF0 545px, #EDEFF0 100%)
   padding-top: 30px
 
@@ -69,6 +69,7 @@
   .post-text
     position: relative
     z-index: 2
+    padding: 15px 0
     max-width: 600px
 
   .category-name
@@ -137,4 +138,16 @@
     font-size: 14px
     line-height: 1.43
     font-weight: normal
+
+@media screen and ( max-width: 1200px )
+  .hero-right
+    flex-basis: 35%
+
+@media screen and ( max-width: 768px )
+  .hero-wrapper
+    padding-bottom: 30px
+    background-image: none
+    background-color: #262D33
+  .hero
+    flex-direction: column
 

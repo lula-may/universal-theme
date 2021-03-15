@@ -49,6 +49,24 @@ body {
   overflow: hidden;
 }
 
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
 .button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -152,6 +170,10 @@ body {
   list-style: none;
 }
 
+.header-menu-toggle {
+  display: none;
+}
+
 .menu-item a {
   margin-left: 15px;
   margin-right: 15px;
@@ -163,7 +185,7 @@ body {
 
 .search-form {
   position: relative;
-  width: 270px;
+  width: 25%;
   height: 40px;
 }
 
@@ -207,11 +229,102 @@ body {
   cursor: pointer;
 }
 
-.home {
-  background-color: #e5e5e5;
+@media screen and (max-width: 1200px) {
+  .menu-item a {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
-.front-page-main {
+@media screen and (max-width: 1024px) {
+  .header-wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .header-nav {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    padding-top: 30px;
+  }
+  .header-menu {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .search-form {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    width: 40%;
+    margin-left: auto;
+  }
+  .header-wrapper {
+    position: relative;
+  }
+  .header-nav {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    z-index: 3;
+    display: none;
+    width: calc(40% + 40px);
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 5px 10px rgba(38, 45, 51, 0.3);
+            box-shadow: 0 5px 10px rgba(38, 45, 51, 0.3);
+  }
+  .header-menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .header-menu a {
+    color: #262D33;
+  }
+  .menu-item {
+    margin-bottom: 15px;
+  }
+  .menu-item:last-child {
+    margin-bottom: 0;
+  }
+  .header-menu-toggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    font-size: 0;
+  }
+  .header-menu-toggle span {
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+  }
+}
+
+.home {
+  background-color: #EDEFF0;
+}
+
+.hero-wrapper {
   background-image: linear-gradient(to bottom, #262D33 0, #262D33 545px, #EDEFF0 545px, #EDEFF0 100%);
   padding-top: 30px;
 }
@@ -303,6 +416,7 @@ body {
 .hero-left .post-text {
   position: relative;
   z-index: 2;
+  padding: 15px 0;
   max-width: 600px;
 }
 
@@ -386,6 +500,27 @@ body {
   font-weight: normal;
 }
 
+@media screen and (max-width: 1200px) {
+  .hero-right {
+    -ms-flex-preferred-size: 35%;
+        flex-basis: 35%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-wrapper {
+    padding-bottom: 30px;
+    background-image: none;
+    background-color: #262D33;
+  }
+  .hero {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .articles-bar-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -403,6 +538,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -415,6 +553,7 @@ body {
 }
 
 .articles-bar-permalink {
+  width: 150px;
   margin-right: 15px;
   text-decoration: none;
   color: inherit;
@@ -425,6 +564,27 @@ body {
   font-weight: 900;
   line-height: 1.43;
   color: #ffffff;
+}
+
+@media screen and (max-width: 1024px) {
+  .articles-bar-list {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .articles-bar-item {
+    width: 50%;
+    margin: 20px 0;
+    padding: 0 25px;
+  }
+  .articles-bar-permalink {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .articles-bar-item {
+    width: 100%;
+  }
 }
 
 .main-grid {

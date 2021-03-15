@@ -1,110 +1,62 @@
 <?php get_header(); ?>
 <main class="front-page-main">
-  <div class="container">
-    <div class="hero">
-      <div class="hero-left">
-        <?php
-        global $post;
-
-        $myposts = get_posts([
-          'numberposts' =>1,
-          'category_name' => 'javascript, html, css, web-design'
-        ]);
-
-        if(
-        $myposts ){ foreach( $myposts as $post ){
-          setup_postdata($post ); ?>
-
-        <!-- Вывод постов -->
-        <img
-          src="<?php
-            if( has_post_thumbnail() ) {
-              echo get_the_post_thumbnail_url();
-            }
-            else {
-              echo get_template_directory_uri().'/assets/images/img-default.png"';
-            } ?>"
-          alt="<?php the_title(); ?>"
-          class="post-thumb"
-        />
-
-        <?php $author_id = get_the_author_meta('ID'); ?>
-        <a href="<?php echo get_author_posts_url($author_id) ?>" class="author">
-          <img
-            src="<?php echo get_avatar_url($author_id) ?>"
-            alt="Автор поста"
-            class="author-avatar"
-          />
-          <div class="author-bio">
-            <span class="author-name"><?php the_author(); ?></span>
-            <span class="author-rank">Должность</span>
-          </div>
-        </a>
-
-        <div class="post-text">
-          <?php
-            foreach(get_the_category() as $category) {
-              printf(
-                '<a href="%s" class="category-name category-name--%s">%s</a>',
-                esc_url( get_category_link( $category ) ),
-                esc_html( $category -> slug ),
-                esc_html( $category -> name )
-              );
-            }
-          ?>
-          <h2 class="post-title"><?php the_title(); ?></h2>
-          <a href="<?php echo get_the_permalink(); ?>" class="button">
-            Читать далее
-            <svg class="icon" width="19" height="16">
-              <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#arrow' ?>"></use>
-            </svg>
-          </a
-          >
-        </div>
-        <?php
-            }
-          } else {
-            ?>
-        <p>Постов нет</p>
-        <?php
-          }
-
-          wp_reset_postdata(); // Сбрасываем $post
-        ?>
-      </div>
-      <div class="hero-right">
-        <h3 class="recommend">Рекомендуем</h3>
-        <ul class="posts-list">
+  <div class="hero-wrapper">
+    <div class="container">
+      <div class="hero">
+        <div class="hero-left">
           <?php
           global $post;
-
           $myposts = get_posts([
-            'numberposts' => 5,
-            'offset' => 1,
+            'numberposts' =>1,
             'category_name' => 'javascript, html, css, web-design'
           ]);
-
-          if( $myposts ){ foreach( $myposts as $post ){
-          setup_postdata( $post ); ?>
-
-          <!-- Вывода постов -->
-          <li class="post">
+          if(
+          $myposts ){ foreach( $myposts as $post ){
+            setup_postdata($post ); ?>
+          <!-- Вывод постов -->
+          <img
+            src="<?php
+              if( has_post_thumbnail() ) {
+                echo get_the_post_thumbnail_url();
+              }
+              else {
+                echo get_template_directory_uri().'/assets/images/img-default.png"';
+              } ?>"
+            alt="<?php the_title(); ?>"
+            class="post-thumb"
+          />
+          <?php $author_id = get_the_author_meta('ID'); ?>
+          <a href="<?php echo get_author_posts_url($author_id) ?>" class="author">
+            <img
+              src="<?php echo get_avatar_url($author_id) ?>"
+              alt="Автор поста"
+              class="author-avatar"
+            />
+            <div class="author-bio">
+              <span class="author-name"><?php the_author(); ?></span>
+              <span class="author-rank">Должность</span>
+            </div>
+          </a>
+          <div class="post-text">
             <?php
               foreach(get_the_category() as $category) {
                 printf(
                   '<a href="%s" class="category-name category-name--%s">%s</a>',
-                  esc_url(get_category_link( $category )),
-                  esc_html($category -> slug),
-                  esc_html($category -> name)
+                  esc_url( get_category_link( $category ) ),
+                  esc_html( $category -> slug ),
+                  esc_html( $category -> name )
                 );
               }
             ?>
-            <a class="post-permalink" href="<?php get_the_permalink(); ?>">
-              <h4 class="post-title">
-                <?php echo mb_strimwidth( get_the_title(), 0, 50, '...') ; ?>
-              </h4>
-            </a>
-          </li>
+            <h2 class="post-title"><?php the_title(); ?></h2>
+            <a href="<?php echo get_the_permalink(); ?>" class="button">
+              Читать далее
+              <svg class="icon" width="19" height="16">
+                <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#arrow' ?>"></use>
+              </svg>
+            </a
+            >
+          </div>
           <?php
               }
             } else {
@@ -112,13 +64,57 @@
           <p>Постов нет</p>
           <?php
             }
-
-          wp_reset_postdata(); // Сбрасываем $post
-        ?>
-        </ul>
+            wp_reset_postdata(); // Сбрасываем $post
+          ?>
+        </div>
+        <div class="hero-right">
+          <h3 class="recommend">Рекомендуем</h3>
+          <ul class="posts-list">
+            <?php
+            global $post;
+            $myposts = get_posts([
+              'numberposts' => 5,
+              'offset' => 1,
+              'category_name' => 'javascript, html, css, web-design'
+            ]);
+            if( $myposts ){ foreach( $myposts as $post ){
+            setup_postdata( $post ); ?>
+            <!-- Вывода постов -->
+            <li class="post">
+              <?php
+                foreach(get_the_category() as $category) {
+                  printf(
+                    '<a href="%s" class="category-name category-name--%s">%s</a>',
+                    esc_url(get_category_link( $category )),
+                    esc_html($category -> slug),
+                    esc_html($category -> name)
+                  );
+                }
+              ?>
+              <a class="post-permalink" href="<?php get_the_permalink(); ?>">
+                <h4 class="post-title">
+                  <?php echo mb_strimwidth( get_the_title(), 0, 50, '...') ; ?>
+                </h4>
+              </a>
+            </li>
+            <?php
+                }
+              } else {
+                ?>
+            <p>Постов нет</p>
+            <?php
+              }
+            wp_reset_postdata(); // Сбрасываем $post
+          ?>
+          </ul>
+        </div>
       </div>
+      <!-- /.hero -->
     </div>
-    <!-- /.hero -->
+      <!-- ./container -->
+  </div>
+      <!-- ./hero-wrapper -->
+  <div class="container">
     <article class="articles-bar">
       <ul class="articles-bar-list">
         <?php
