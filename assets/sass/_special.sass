@@ -88,7 +88,7 @@
 
 .career
   min-height: 370px
-  padding: 35px 280px 50px 35px
+  padding: 35px 50% 50px 35px
   margin-bottom: 30px
   background-color: #B4D1E0
   border-radius: 10px
@@ -133,3 +133,32 @@
   color: #939699
   font-size: 12px
   line-height: 1.25
+
+@media screen and ( max-width: 1200px )
+  .special-grid
+    flex-wrap: wrap
+  .photo-report
+    width: 100%
+    margin-bottom: 30px
+  .other
+    width: 100%
+  .career
+    background-size: contain
+    background-position: 75% 0
+
+@media screen and ( max-width: 768px )
+  .career
+    background-position: center
+    background-origin: border-box
+    background-size: cover
+
+@media screen and ( max-width: 480px )
+  .career
+    padding: 25px 35% 25px 25px
+  .other-list
+    flex-wrap: wrap
+    .other-post
+      width: 100%
+      margin-bottom: 15px
+  .photo-report-title
+    font-size: 28px

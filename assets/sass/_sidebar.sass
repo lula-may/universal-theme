@@ -2,12 +2,12 @@
   width: calc(25% - 15px)
   margin-left: 30px
   .widget_content
-    justify-content: space-between
+    justify-content: center
     padding: 0 15px 35px
   .widget_social-link
-    margin: auto
     width: 50px
     height: 50px
+    margin: 5px
 
 .widget
   margin-bottom: 30px
@@ -162,3 +162,19 @@
   font-size: 12px
   line-height: 1.25
   color: #939699
+
+@media screen and ( max-width: 1200px )
+  .sidebar-front-page
+    width: calc(30% - 15px)
+@media screen and ( max-width: 1024px )
+  .sidebar-front-page
+    width: calc(35% - 15px)
+    &--news
+      width: 100%
+      margin-left: 0
+      margin-top: 30px
+@media screen and ( max-width: 960px )
+  .sidebar-front-page
+    width: 100%
+    margin-left: 0
+    margin-top: 30px
