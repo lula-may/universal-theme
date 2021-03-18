@@ -1885,3 +1885,128 @@ body {
     margin-bottom: 15px;
   }
 }
+
+.post-header {
+  padding: 60px 0 72px;
+  color: #ffffff;
+}
+
+.post-header p {
+  max-width: 630px;
+  margin: 0 0 43px;
+  font-size: 18px;
+  line-height: 1.667;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.post-container {
+  max-width: 946px;
+}
+
+.post-header-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.post-header-nav .navigation {
+  margin: 0;
+}
+
+.post-header-nav .home-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  margin-right: 30px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.post-header-nav .home-link svg {
+  margin-right: 6px;
+}
+
+.post-header-nav .nav-links {
+  min-width: 160px;
+}
+
+.post-header-nav .nav-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.post-header-nav .nav-links .icon-prev {
+  margin-right: 6px;
+}
+
+.post-header-nav .nav-links .icon-next {
+  margin-left: 6px;
+}
+
+.post-title-wrapper {
+  position: relative;
+  margin: 50px 0 30px;
+}
+
+.post-title {
+  max-width: 750px;
+  margin: 0;
+  font-family: Roboto Slab, Georgia, serif;
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 1.273;
+  color: #ffffff;
+}
+
+.post-bookmark {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.post-bookmark .icon {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.post-header-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.post-header-info-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+  font-size: 12px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.post-header-info .icon {
+  margin-right: 5px;
+  color: rgba(255, 255, 255, 0.4);
+}
