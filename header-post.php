@@ -7,10 +7,24 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<header class="header">
+<header class="header header-light">
   <div class="container">
     <div class="header-wrapper">
       <?php
+        if( has_custom_logo() ){
+          echo '<div class="logo">' . get_custom_logo() . '<a href="';
+          if( ! is_front_page() ){
+            echo get_home_url();
+          }
+          echo '" class="logo-link"><span class="logo-name">' .get_bloginfo('name') . '</span></a></div>';
+        } else {
+          echo '<a href="';
+          if( ! is_front_page() ){
+            echo get_home_url();
+          }
+          echo '" class="logo-link"><span class="logo-name">' .get_bloginfo('name') . '</span></a>';
+        }
+
         wp_nav_menu( [
           'theme_location'  => 'header_menu',
           'container'       => 'nav',
