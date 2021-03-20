@@ -7,7 +7,8 @@
     font-size: 18px
     line-height: 1.667
     color: rgba(#ffffff, 0.85 )
-.post-container
+.post-header-wrapper
+  position: relative
   max-width: 946px
 .post-header-nav
   display: flex
@@ -71,3 +72,129 @@
   .icon
     margin-right: 5px
     color: rgba(#ffffff, 0.4)
+.post-author
+  position: absolute
+  right: 0
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  min-width: 263px
+  background-color: #ffffff
+  border-radius: 10px
+  border: 1px solid #D9DADB
+  overflow: hidden
+  &-avatar
+    width: 90px
+    height: 90px
+    border-radius: 50%
+  &-info
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding: 35px 25px 20px
+    color: #262D33
+  &-name
+    margin-top: 15px
+    margin-bottom: 5px
+    font-family: Roboto Slab, Georgia, serif
+    font-weight: bold
+    font-size: 20px
+    line-height: 1.25
+  &-rank
+    color: #4B5157
+  &-count
+    margin-top: 15px
+    font-weight: 900
+  &-link
+    width: 100%
+    padding: 15px 25px
+    text-align: center
+    color: #262D33
+    font-weight: 900
+    text-decoration: none
+    border-top: 1px solid #D9DADB
+    &:hover,
+    &:focus,
+    &:visited
+      color: #262D33
+.post-content
+  padding-top: 60px
+  padding-bottom: 30px
+  p
+    font-size: 18px
+    line-height: 30px
+    color: #4B5157
+    margin: 30px 0
+    &:first-child
+      max-width: 623px
+  .has-drop-cap
+    &:not(:focus)
+      &:first-letter
+        color: #4592FF
+        font-weight: 900
+        // margin: 0 10px 0 0
+        line-height: 0.9
+  h1, h2, h3, h4, h5, h6
+    font-family: Roboto Slab, Georgia, serif
+    font-style: normal
+    font-weight: bold
+  h1
+    font-size: 30px
+  h2
+    font-size: 25px
+  h3
+    font-size: 22px
+  h4
+    font-size: 18px
+  h5
+    font-size: 16px
+  h6
+    font-size: 14px
+  ul, ol
+    margin-top: 20px
+    padding: 0
+    margin-left: 20px
+    font-size: 18px
+    line-height: 30px
+  blockquote
+    font-family: Roboto Slab
+    font-style: normal
+    font-weight: bold
+    font-size: 25px
+    line-height: 30px
+    margin-left: 0
+    margin-top: 80px
+    margin-bottom: 45px
+    position: relative
+    &::before
+      position: absolute
+      top: -20px
+      left: -20px
+      content: ''
+      background-image: url(../images/quote.svg)
+      background-repeat: no-repeat
+      background-size: 100%
+      background-position: center
+      width: 70px
+      height: 70px
+      z-index: -1
+    cite
+      font-style: normal
+.tags-links
+  padding-bottom: 60px
+  border-bottom: 1px solid #D9DADB
+  max-width: 623px
+  width: 100%
+  display: block
+  a
+    text-decoration: none
+    font-size: 14px
+    line-height: 20px
+    padding: 5px 15px
+    color: #262D33
+    border: 1px solid #D9DADB
+    border-radius: 5px
+    margin-right: 10px
+
