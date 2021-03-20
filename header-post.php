@@ -13,10 +13,7 @@
       <?php
         if( has_custom_logo() ){
           echo '<div class="logo">' . get_custom_logo() . '<a href="';
-<<<<<<< HEAD
-          // Проверка главная страница или нет
-=======
->>>>>>> 600a52309078564f47c727a01fe21ed825060fe2
+          // Проверка главная это страница или нет
           if( ! is_front_page() ){
             echo get_home_url();
           }
