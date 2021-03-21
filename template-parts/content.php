@@ -140,16 +140,21 @@
       ?>
     </div><!-- .post-content -->
     <!-- Подвал поста -->
-    <footer class="entry-footer">
+    <footer class="post-footer">
       <?php
-			$tags_list = get_the_tag_list( '', esc_html_x( ' ', 'list item separator', 'universal-example' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( '', 'list item separator', 'universal-example' ) );
 			if ( $tags_list ) {
         /* translators: 1: list of tags. */
 				printf( '<div class="tags-links">' . esc_html__( '%1$s', 'universal-example' ) . '</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
+      // Поделиться в соцсетях
+      meks_ess_share();
       ?>
     </footer>
     <!-- .entry-footer -->
   </div>
   <!-- /.container -->
+
+  <!-- Подключаем сайдбар -->
+  <?php get_sidebar('single'); ?>
 </article>
