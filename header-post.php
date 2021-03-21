@@ -13,18 +13,13 @@
       <?php
         if( has_custom_logo() ){
           echo '<div class="logo">' . get_custom_logo() . '<a href="';
-          // Проверка главная это страница или нет
-          if( ! is_front_page() ){
-            echo get_home_url();
-          }
-          echo '" class="logo-link"><span class="logo-name">' .get_bloginfo('name') . '</span></a></div>';
         } else {
           echo '<a href="';
-          if( ! is_front_page() ){
-            echo get_home_url();
-          }
-          echo '" class="logo-link"><span class="logo-name">' .get_bloginfo('name') . '</span></a>';
         }
+        if( ! is_front_page() ){
+          echo get_home_url();
+        }
+        echo '" class="logo-link"><span class="logo-name">' .get_bloginfo('name') . '</span></a></div>';
 
         wp_nav_menu( [
           'theme_location'  => 'header_menu',
