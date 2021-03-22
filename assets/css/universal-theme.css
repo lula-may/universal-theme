@@ -2334,3 +2334,135 @@ body {
   font-weight: 700;
   line-height: 1.2;
 }
+
+.comments-area {
+  max-width: 750px;
+}
+
+.comments-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.comments-title {
+  font-family: Roboto Slab, Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #262D33;
+}
+
+.comments-add-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 20px;
+  color: #262D33;
+  font-weight: 900;
+  text-decoration: none;
+  border: 1px solid #D9DADB;
+  border-radius: 20px;
+}
+
+.comments-add-button:visited, .comments-add-button:active, .comments-add-button:focus {
+  color: #262D33;
+}
+
+.comments-add-button .icon {
+  margin-right: 10px;
+  color: #BCBFC2;
+}
+
+.comments-count {
+  font-family: Lato, Verdana, sans-serif;
+  font-weight: 400;
+  color: #939699;
+}
+
+.comment a {
+  text-decoration: none;
+}
+
+.comment-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 20px 0 29px;
+  border-top: 1px solid #D9DADB;
+}
+
+.comment-list {
+  margin: 0;
+  padding: 0;
+}
+
+.comment-author-avatar {
+  width: 75px;
+  height: 75px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.comment-author-name {
+  font-family: Roboto Slab, Georgia, serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.563;
+}
+
+.comment-author-name a {
+  color: #262D33;
+}
+
+.comment-meta a {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #939699;
+}
+
+.comment-content p {
+  margin: 10px 15px;
+  font-size: 18px;
+  line-height: 1.667;
+}
+
+.comment-reply {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.comment-reply-link {
+  color: #262D33;
+}
+
+.comment-reply .icon {
+  margin-right: 5px;
+  color: #BCBFC2;
+}
