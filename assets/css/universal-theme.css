@@ -1359,14 +1359,12 @@ body {
 
 .similar-post-list {
   margin: 0;
+  margin-right: -2%;
   padding: 60px 0;
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .similar-post-item {
@@ -1379,6 +1377,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 30px;
+  margin-right: 2%;
 }
 
 .similar-post-link {
@@ -2465,4 +2464,77 @@ body {
 .comment-reply .icon {
   margin-right: 5px;
   color: #BCBFC2;
+}
+
+.comment-form {
+  padding: 25px 45px 40px 25px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+.comment-form .button {
+  border: none;
+  margin-left: 95px;
+}
+
+.comment-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.comment-wrapper .avatar {
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.comment-form-text {
+  margin: 0 0 0 10px;
+}
+
+.comment-label {
+  display: block;
+  margin-bottom: 15px;
+  margin-left: 95px;
+  font-family: Roboto Slab, Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #262D33;
+}
+
+.comment-textarea {
+  display: block;
+  min-height: 130px;
+  max-width: 595px;
+  resize: none;
+  border: 1px solid #D9DADB;
+  border-radius: 10px;
+}
+
+.comment-textarea-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.comment-textarea-wrapper::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 27px;
+  left: -10px;
+  width: 12px;
+  height: 20px;
+  background-image: url("../images/angle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.form-submit {
+  margin: 15px 0 0;
 }

@@ -111,7 +111,7 @@ if ( post_password_required() ) {
         <h2 class="comments-title">
           <?php echo 'Комментарии <span class="comments-count">' . get_comments_number() . '</span>' ?>
         </h2><!-- .comments-title -->
-        <a href="" class="comments-add-button">
+        <a href="#commentform" class="comments-add-button">
           <svg class="icon" width="18" height="18">
             <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#pencil"></use>
           </svg>
@@ -143,7 +143,24 @@ if ( post_password_required() ) {
         <?php
       endif;
     endif; // Check for have_comments().
-    comment_form();
+    $comment_args = array(
+      'title_reply'          => '',
+      'comment_field'        => '<div class="comment-form-comment">
+        <label for="comment" class="comment-label">' . _x( 'Что вы думаете на этот счет?', 'noun' ) . '</label>
+        <div class="comment-wrapper">'
+        . get_avatar(get_current_user_id(), 75) .
+        '<div class="comment-textarea-wrapper"><textarea class="comment-textarea" id="comment" name="comment" aria-required="true" required="required"></textarea></div>
+        </div>
+        </div>',
+      'logged_in_as'         => '',
+      'class_submit'         => 'button comment-submit',
+      'submit_button'        => '<button name="%1$s" type="submit" id="%2$s"      class="%3$s"> %4$s
+        <svg class="icon" width="19" height="16">
+          <use xlink:href="' . get_template_directory_uri() . '/assets/images/sprite.svg#arrow"></use>
+        </svg></button>',
+      'label_submit' => 'Отправить ',
+        );
+    comment_form($comment_args);
     ?>
   </div><!-- #comments -->
 </div>
