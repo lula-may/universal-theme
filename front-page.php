@@ -412,84 +412,83 @@
   <!-- Блок с новостями и мнениями -->
   <div class="container">
     <div class="main-grid">
-      <section class="digest">
-        <ul class="digest-list">
-        <?php
-          global $post;
-
-          $myposts = get_posts([
-            'numberposts' => 6,
-            'category_name' => 'news, opinions, hot, collection',
-            'orderby' => 'date',
-            'order' => 'ASC',
-          ]);
-
-          if( $myposts ){
-            foreach( $myposts as $post ){
-              setup_postdata( $post );
+      <div class="digest-wrapper">
+        <section class="digest">
+          <ul class="digest-list">
+          <?php
+            global $post;
+            $myposts = get_posts([
+              'numberposts' => 6,
+              'category_name' => 'news, opinions, hot, collection',
+              'orderby' => 'date',
+              'order' => 'ASC',
+            ]);
+            if( $myposts ){
+              foreach( $myposts as $post ){
+                setup_postdata( $post );
+                ?>
+                <li class="digest-item">
+                  <a href="<?php the_permalink(); ?>" class="digest-link">
+                    <article class="digest-card">
+                      <div class="digest-image-column">
+                        <img src="
+                        <?php
+                          if( has_post_thumbnail() ) {
+                            echo get_the_post_thumbnail_url();
+                          }
+                          else {
+                            echo get_template_directory_uri().'/assets/images/img-default.png"';
+                          }
+                        ?>" alt="<?php the_title(); ?>" />
+                      </div>
+                      <div class="digest-text-column">
+                        <?php
+                          $category = get_the_category();
+                          printf(
+                            '<span class="category-name category-name--%s">%s</span>',
+                            $category[0] -> slug,
+                            $category[0] -> name
+                          );
+                        ?>
+                        <h3 class="digest-title">
+                          <?php echo mb_strimwidth( get_the_title(), 0, 70, ' ...'); ?>
+                        </h3>
+                        <p class="digest-text">
+                          <?php echo wp_trim_words( get_the_content(), 25, '...' ); ?>
+                        </p>
+                        <footer class="digest-footer">
+                          <div class="footer-info">
+                            <span class="article-date"><?php the_time('j F'); ?></span>
+                            <span class="article-comments">
+                              <svg class="icon" width="15" height="15">
+                                <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#comment' ?>">
+                                </use>
+                              </svg>
+                              <?php comments_number('0', '1', '%'); ?></span>
+                              <span class="article-likes">
+                              <svg class="icon" width="15" height="15">
+                                <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#heart' ?>">
+                                </use>
+                              </svg>
+                              <?php comments_number('0', '1', '%'); ?></span>
+                          </div>
+                        </footer>
+                      </div>
+                    </article>
+                  </a>
+                </li>
+                <?php
+              }
+            } else {
               ?>
-              <li class="digest-item">
-                <a href="<?php the_permalink(); ?>" class="digest-link">
-                  <article class="digest-card">
-                    <div class="digest-image-column">
-                      <img src="
-                      <?php
-                        if( has_post_thumbnail() ) {
-                          echo get_the_post_thumbnail_url();
-                        }
-                        else {
-                          echo get_template_directory_uri().'/assets/images/img-default.png"';
-                        }
-                      ?>" alt="<?php the_title(); ?>" />
-                    </div>
-                    <div class="digest-text-column">
-                      <?php
-                        $category = get_the_category();
-                        printf(
-                          '<span class="category-name category-name--%s">%s</span>',
-                          $category[0] -> slug,
-                          $category[0] -> name
-                        );
-                      ?>
-                      <h3 class="digest-title">
-                        <?php echo mb_strimwidth( get_the_title(), 0, 70, ' ...'); ?>
-                      </h3>
-                      <p class="digest-text">
-                        <?php echo wp_trim_words( get_the_content(), 25, '...' ); ?>
-                      </p>
-                      <footer class="digest-footer">
-                        <div class="footer-info">
-                          <span class="article-date"><?php the_time('j F'); ?></span>
-                          <span class="article-comments">
-                            <svg class="icon" width="15" height="15">
-                              <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#comment' ?>">
-                              </use>
-                            </svg>
-                            <?php comments_number('0', '1', '%'); ?></span>
-                            <span class="article-likes">
-                            <svg class="icon" width="15" height="15">
-                              <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#heart' ?>">
-                              </use>
-                            </svg>
-                            <?php comments_number('0', '1', '%'); ?></span>
-                        </div>
-                      </footer>
-                    </div>
-                  </article>
-                </a>
-              </li>
+              <p>Постов нет</p>
               <?php
             }
-          } else {
-            ?>
-            <p>Постов нет</p>
-            <?php
-          }
-
-          wp_reset_postdata(); // Сбрасываем $post
-        ?>
-        </ul>
-      </section>
+            wp_reset_postdata(); // Сбрасываем $post
+          ?>
+          </ul>
+        </section>
+      </div>
 
       <!-- Подключаем сайдбар -->
       <?php get_sidebar('home-bottom'); ?>

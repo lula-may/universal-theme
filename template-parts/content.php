@@ -1,6 +1,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <!-- шапка поста -->
-	<header class="entry-header <?php echo get_post_type(); ?>-header" style="background: linear-gradient(0deg, rgba(38, 45, 51, 0.75), rgba(38, 45, 51, 0.75)), url(
+	<header class="entry-header <?php echo get_post_type(); ?>-header" style="background-image: linear-gradient(0deg, rgba(38, 45, 51, 0.75), rgba(38, 45, 51, 0.75)), url(
     <?php
       if( has_post_thumbnail() ) {
         echo get_the_post_thumbnail_url();
@@ -8,7 +8,7 @@
       else {
         echo get_template_directory_uri().'/assets/images/img-default.png';
       }
-    ?>);">
+    ?>); background-repeat: no-repeat; background-size: 100%">
     <div class="container">
       <div class="post-header-wrapper">
         <div class="post-header-nav">
