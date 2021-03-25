@@ -12,12 +12,15 @@
     <div class="header-wrapper">
       <?php
         if( has_custom_logo() ){
-          echo '<div class="logo">' . get_custom_logo() . '<span class="logo-name">' .get_bloginfo('name') . '</span></div>';
+          echo '<div class="logo">' . get_custom_logo() . '<a ';
         } else {
-          echo '<span class="logo-name">' .get_bloginfo('name') . '</span>';
+          echo '<a';
         }
-      ?>
-      <?php
+        if( ! is_front_page() ){
+          echo 'href="' . get_home_url() . '"';
+        }
+        echo ' class="logo-link"><span class="logo-name">' .get_bloginfo('name') . '</span></a></div>';
+
         wp_nav_menu( [
           'theme_location'  => 'header_menu',
           'container'       => 'nav',

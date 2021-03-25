@@ -12,14 +12,14 @@
     <div class="header-wrapper">
       <?php
         if( has_custom_logo() ){
-          echo '<div class="logo">' . get_custom_logo() . '<a href="';
+          echo '<div class="logo">' . get_custom_logo() . '<a ';
         } else {
-          echo '<a href="';
+          echo '<a ';
         }
         if( ! is_front_page() ){
-          echo get_home_url();
+          echo  'href="' . get_home_url() . '"';
         }
-        echo '" class="logo-link"><span class="logo-name">' .get_bloginfo('name') . '</span></a></div>';
+        echo 'class="logo-link"><span class="logo-name">' .get_bloginfo('name') . '</span></a></div>';
 
         wp_nav_menu( [
           'theme_location'  => 'header_menu',
