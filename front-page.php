@@ -412,8 +412,8 @@
   <!-- Блок с новостями и мнениями -->
   <div class="container">
     <div class="main-grid">
-      <section class="news">
-        <ul class="news-list">
+      <section class="digest">
+        <ul class="digest-list">
         <?php
           global $post;
 
@@ -428,10 +428,10 @@
             foreach( $myposts as $post ){
               setup_postdata( $post );
               ?>
-              <li class="news-item">
-                <a href="<?php the_permalink(); ?>" class="news-link">
-                  <article class="news-card">
-                    <div class="news-image-column">
+              <li class="digest-item">
+                <a href="<?php the_permalink(); ?>" class="digest-link">
+                  <article class="digest-card">
+                    <div class="digest-image-column">
                       <img src="
                       <?php
                         if( has_post_thumbnail() ) {
@@ -442,7 +442,7 @@
                         }
                       ?>" alt="<?php the_title(); ?>" />
                     </div>
-                    <div class="news-text-column">
+                    <div class="digest-text-column">
                       <?php
                         $category = get_the_category();
                         printf(
@@ -451,13 +451,13 @@
                           $category[0] -> name
                         );
                       ?>
-                      <h3 class="news-title">
+                      <h3 class="digest-title">
                         <?php echo mb_strimwidth( get_the_title(), 0, 70, ' ...'); ?>
                       </h3>
-                      <p class="news-text">
+                      <p class="digest-text">
                         <?php echo wp_trim_words( get_the_content(), 25, '...' ); ?>
                       </p>
-                      <footer class="news-footer">
+                      <footer class="digest-footer">
                         <div class="footer-info">
                           <span class="article-date"><?php the_time('j F'); ?></span>
                           <span class="article-comments">

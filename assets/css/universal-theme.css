@@ -249,6 +249,7 @@ body {
   width: 100%;
   height: 100%;
   padding: 10px 25px;
+  color: #000000;
   background-color: #656B70;
   border-radius: 10px;
   border: none;
@@ -1464,38 +1465,38 @@ body {
   }
 }
 
-.news {
+.digest {
   width: calc( 75% - 15px);
   background-color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.news-list {
+.digest-list {
   margin: 0;
   padding: 0 25px;
   list-style: none;
 }
 
-.news-item {
+.digest-item {
   padding: 25px 0 24px;
   border-bottom: 1px solid #D9DADB;
 }
 
-.news-item:last-child {
+.digest-item:last-child {
   border-bottom: none;
 }
 
-.news-link {
+.digest-link {
   text-decoration: none;
   color: inherit;
 }
 
-.news-link:hover, .news-link:focus, .news-link:visited {
+.digest-link:hover, .digest-link:focus, .digest-link:visited {
   color: inherit;
 }
 
-.news-card {
+.digest-card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1504,7 +1505,7 @@ body {
           justify-content: space-between;
 }
 
-.news-image-column {
+.digest-image-column {
   width: 336px;
   min-height: 100%;
   margin-right: 25px;
@@ -1519,12 +1520,12 @@ body {
   overflow: hidden;
 }
 
-.news-image-column img {
+.digest-image-column img {
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.news-text-column {
+.digest-text-column {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1542,7 +1543,7 @@ body {
   line-height: 1.25;
 }
 
-.news-title {
+.digest-title {
   margin: 15px 0 10px;
   font-family: Roboto Slab, Georgia, serif;
   font-size: 20px;
@@ -1551,29 +1552,29 @@ body {
   color: #262D33;
 }
 
-.news-text {
+.digest-text {
   margin: 0 0 10px;
   padding: 0;
   color: #4B5157;
 }
 
-.news-footer {
+.digest-footer {
   margin-top: auto;
 }
 
-.news-footer .article-date,
-.news-footer .article-comments {
+.digest-footer .article-date,
+.digest-footer .article-comments {
   margin-right: 11px;
 }
 
 @media screen and (max-width: 1024px) {
-  .news {
+  .digest {
     width: 100%;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .news-card {
+  .digest-card {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1582,14 +1583,14 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
-  .news-image-column {
+  .digest-image-column {
     margin-right: 0;
     margin-bottom: 25px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .news-item {
+  .digest-item {
     padding-top: 0;
     border-bottom: none;
   }
