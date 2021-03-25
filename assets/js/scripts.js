@@ -26,3 +26,9 @@ $('a[href*="#"]').click(function () {
   );
   return false;
 });
+
+// Очистка всех текстовых полей при перезагрузке страницы
+let inputTextElements = document.querySelectorAll("input[type=text]");
+inputTextElements.forEach((el) => {
+  el.value = "";
+});
