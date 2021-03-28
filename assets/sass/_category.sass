@@ -1,0 +1,84 @@
+.category
+  padding-bottom: 70px
+  background-color: #E5E5E5
+  .pagination
+    width: 74%
+    margin: 10px auto 0
+  &-title
+    font-family: Roboto Slab, Georgia, serif
+    font-size: 40px
+    font-weight: 700
+    line-height: 1.25
+    color: #262D33
+.post
+  &-list
+    display: flex
+    flex-wrap: wrap
+    margin: 0
+    padding: 0
+    list-style: none
+    margin-right: -2%
+  &-item
+    width: 23%
+    margin-right: 2%
+    margin-bottom: 30px
+    border-radius: 10px
+    overflow: hidden
+  &-link
+    display: flex
+    height: 100%
+    text-decoration: none
+  &-card
+    display: flex
+    flex-direction: column
+    background-color: #ffffff
+    &-text
+      flex-grow: 1
+      display: flex
+      flex-direction: column
+      padding: 15px 25px 25px
+      color: #4B5157
+      p
+        margin: 0 0 15px
+    &-thumb
+      height: 180px
+      width: 100%
+      object-fit: cover
+    &-title
+      margin: 0 0 5px
+      font-family: Roboto Slab, Georgia, serif
+      font-size: 16px
+      font-weight: 700
+      line-height: 1.563
+      color: #262D33
+    &-footer
+      margin-top: auto
+    .author
+      &-avatar
+        width: 45px
+        height: 45px
+        margin-right: 5px
+        border-radius: 50%
+      &-name
+        display: block
+        margin-bottom: 2px
+        font-style: normal
+        color: #4B5157
+    .article-date,
+    .article-comments
+      margin-right: 10px
+@media screen and ( max-width: 1200px )
+  .post-list
+    margin-right: -3.3%
+  .post-item
+    width: 30%
+    margin-right: 3.3%
+@media screen and ( max-width: 768px )
+  .post-list
+    margin-right: 0
+    justify-content: space-between
+  .post-item
+    width: 45%
+@media screen and ( max-width: 480px )
+  .post-item
+    width: 100%
