@@ -671,6 +671,36 @@ function my_scripts_method() {
 	// отменяем зарегистрированный jQuery
 	// вместо "jquery-core", можно вписать "jquery", тогда будет отменен еще и jquery-migrate
 }
+
+// Подключаем локализацию в самом конце подключаемых к выводу скриптов, чтобы скрипт
+// 'jquery', к которому мы подключаемся, точно был добавлен в очередь на вывод.
+// Заметка: код можно вставить в любое место functions.php темы
+add_action( 'wp_enqueue_scripts', 'adminAjax_data', 99 );
+function adminAjax_data(){
+	wp_localize_script( 'jquery', 'adminAjax',
+		array(
+			'url' => admin_url('admin-ajax.php')
+		)
+	);
+}
+
+add_action( 'wp_ajax_contacts_form', 'ajax_form' );
+add_action( 'wp_ajax_nopriv_contacts_form', 'ajax_form' );
+function ajax_form() {
+  $contact_name = $_POST['contact_name'];
+  $contact_email = $_POST['contact_email'];
+  $contact_comment = $_POST['contact_comment'];
+  $message = 'Пользователь ' . $contact_name . ' задал вопрос: ' . $contact_comment . ' Его email для связи: ' . $contact_email;
+  $headers = 'From: Юлия Елагина <julia-elagina@yandex.ru>' . "\r\n";
+  $sent_message = wp_mail('elagina@inaudit.group', 'Новая заявка с сайта', $message, $headers);
+  if ($sent_message) {
+    echo 'Все получилось' . $message;
+  } else {
+    echo 'Есть ошибка';
+  }
+	// выход нужен для того, чтобы в ответе не было ничего лишнего, только то что возвращает функция
+	wp_die();
+}
 // Изменяем настройки облака тегов
 add_filter('widget_tag_cloud_args', 'edit_widget_tag_cloud_args');
 function edit_widget_tag_cloud_args( $args ){

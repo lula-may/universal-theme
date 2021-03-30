@@ -32,3 +32,25 @@ let inputTextElements = document.querySelectorAll("input[type=text]");
 inputTextElements.forEach((el) => {
   el.value = "";
 });
+
+// Отправка формы Контакты
+let contactsForm = $(".contacts-form");
+
+contactsForm.on("submit", function (evt) {
+  evt.preventDefault();
+  let formData = new FormData(this);
+  formData.append("action", "contacts_form");
+  $.ajax({
+    type: "POST",
+    url: adminAjax.url,
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (response) {
+      console.log("Ответ сервера: " + response);
+    },
+    error: function (data) {
+      alert(data);
+    },
+  });
+});
