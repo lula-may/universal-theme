@@ -23,6 +23,8 @@ get_header();
             </svg>
           </button>
         </form>
+
+        <?php the_content()?>
       </div>
       <div class="contacts-right"></div>
     </div>

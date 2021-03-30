@@ -701,6 +701,14 @@ function ajax_form() {
 	// выход нужен для того, чтобы в ответе не было ничего лишнего, только то что возвращает функция
 	wp_die();
 }
+
+// удалить тэг p, br и span из contact form 7
+add_filter('wpcf7_autop_or_not', '__return_false');
+add_filter('wpcf7_form_elements', function($content) {
+    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+    return $content;
+});
+
 // Изменяем настройки облака тегов
 add_filter('widget_tag_cloud_args', 'edit_widget_tag_cloud_args');
 function edit_widget_tag_cloud_args( $args ){

@@ -2848,7 +2848,8 @@ body {
   line-height: 1.667;
 }
 
-.contacts-form {
+.contacts-form,
+.wpcf7-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2856,10 +2857,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .contacts-form input,
-.contacts-form textarea {
+.contacts-form textarea,
+.wpcf7-form input,
+.wpcf7-form textarea {
   width: 100%;
   padding: 10px 15px;
   margin-bottom: 10px;
@@ -2870,12 +2874,42 @@ body {
 }
 
 .contacts-form input::placeholer,
-.contacts-form textarea::placeholer {
+.contacts-form textarea::placeholer,
+.wpcf7-form input::placeholer,
+.wpcf7-form textarea::placeholer {
   color: #939699;
 }
 
-.contacts-form textarea {
-  min-height: 120px;
+.contacts-form textarea,
+.wpcf7-form textarea {
+  height: 120px;
   margin-bottom: 20px;
   resize: none;
+}
+
+.wpcf7-form .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px 43px 10px 20px;
+  color: #ffffff;
+  font-size: 14px;
+  font-style: normal;
+  text-decoration: none;
+  font-weight: 900;
+  line-height: 20px;
+  background-color: #4592FF;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background-image: url("../images/arrow.svg");
+  background-position: center right 20px;
+  background-repeat: no-repeat;
+  background-size: 15px 7px;
 }

@@ -48,6 +48,7 @@ contactsForm.on("submit", function (evt) {
     contentType: false,
     success: function (response) {
       console.log("Ответ сервера: " + response);
+      contactsForm.trigger("reset");
     },
     error: function (data) {
       alert(data);
