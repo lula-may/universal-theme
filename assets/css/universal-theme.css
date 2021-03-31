@@ -2822,7 +2822,7 @@ body {
   background-color: #262D33;
 }
 
-.contacts-title {
+.contacts-heading {
   margin: 0 0 27px;
   font-family: Roboto Slab, Georgia, serif;
   font-size: 40px;
@@ -2841,7 +2841,20 @@ body {
   margin-right: 80px;
 }
 
-.contacts-text {
+.contacts-right {
+  max-width: 265px;
+}
+
+.contacts-right a,
+.contacts-right address {
+  display: block;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-style: normal;
+}
+
+.contacts-title {
   margin: 0 0 28px;
   font-size: 18px;
   font-weight: 700;

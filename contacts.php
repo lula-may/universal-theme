@@ -8,10 +8,10 @@ get_header();
 ?>
 <main class="contacts">
   <div class="container">
-    <?php the_title('<h1 class="contacts-title">', '</h1>', true); ?>
+    <?php the_title('<h1 class="contacts-heading">', '</h1>', true); ?>
     <div class="contacts-wrapper">
       <div class="contacts-left">
-        <p class="contacts-text">Через форму обратной связи</p>
+        <h2 class="contacts-title">Через форму обратной связи</h2>
         <form action="#" method="post" class="contacts-form">
           <input name="contact_name" type="text" class="contacts-input" placeholder="Ваше имя" required>
           <input name="contact_email" type="email" class="contacts-input" placeholder="Ваш email" required>
@@ -26,7 +26,24 @@ get_header();
 
         <?php the_content()?>
       </div>
-      <div class="contacts-right"></div>
+      <div class="contacts-right">
+        <h2 class="contacts-title">Или по этим контактам</h2>
+        <?php
+        // Проверяем есть ли дополнительные поля email, адрес и телефон
+          $email = get_post_meta( get_the_ID(), 'email', true );
+          $address = get_post_meta( get_the_ID(), 'address', true );
+          $phone = get_post_meta( get_the_ID(), 'phone', true );
+          if ( $email) {
+            echo '<a href="mailto:' . $email . '">' . $email . '</a>';
+          }
+          if ( $address ) {
+            echo '<address>' . $address . '</address>';
+          }
+          if ( $phone ) {
+            echo '<a href="tel:' . $phone . '">' . $phone . '</a>';
+          }
+        ?>
+      </div>
     </div>
 
   </div>
