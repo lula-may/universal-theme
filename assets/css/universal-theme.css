@@ -2173,6 +2173,7 @@ body {
 
 .post-header-info .icon {
   margin-right: 5px;
+  width: auto;
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -2925,4 +2926,23 @@ body {
   background-position: center right 20px;
   background-repeat: no-repeat;
   background-size: 15px 7px;
+}
+
+.lesson-header {
+  padding: 80px 0;
+}
+
+.lesson .video {
+  width: 100%;
+}
+
+.lesson-content {
+  padding: 30px 0;
+}
+
+.lesson-content p {
+  font-size: 18px;
+  line-height: 30px;
+  color: #4B5157;
+  margin: 0;
 }

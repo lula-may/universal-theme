@@ -12,7 +12,7 @@ get_header();
     <div class="contacts-wrapper">
       <div class="contacts-left">
         <h2 class="contacts-title">Через форму обратной связи</h2>
-        <form action="#" method="post" class="contacts-form">
+        <!-- <form action="#" method="post" class="contacts-form">
           <input name="contact_name" type="text" class="contacts-input" placeholder="Ваше имя" required>
           <input name="contact_email" type="email" class="contacts-input" placeholder="Ваш email" required>
           <textarea name="contact_comment" id="contacts-text" class="contacts-textarea" placeholder="Ваш вопрос" required></textarea>
@@ -23,7 +23,7 @@ get_header();
             </svg>
           </button>
         </form>
-
+ -->
         <?php the_content()?>
       </div>
       <div class="contacts-right">
