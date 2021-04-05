@@ -40,8 +40,8 @@
                   <use xlink:href="'. get_template_directory_uri() . '/assets/images/sprite.svg#left-arrow">
                   </use>
                 </svg>
-              ' . esc_html__( 'Назад ', 'universal-example' ),
-                    'next_text' => '<span class="post-nav-next">' . esc_html__( 'Вперед ', 'universal-example' ) . '<svg class="icon icon-next" width="15" height="7">
+              ' . esc_html__( 'Back ', 'universal' ),
+                    'next_text' => '<span class="post-nav-next">' . esc_html__( 'Next ', 'universal' ) . '<svg class="icon icon-next" width="15" height="7">
                   <use xlink:href="'. get_template_directory_uri() . '/assets/images/sprite.svg#arrow">
                   </use>
                 </svg>',
@@ -133,7 +133,7 @@
 
       wp_link_pages(
         array(
-          'before' => '<div class="page-links">' . esc_html__( 'Страницы:', 'universal-example' ),
+          'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'universal' ),
           'after'  => '</div>',
         )
       );
@@ -142,10 +142,10 @@
     <!-- Подвал поста -->
     <footer class="post-footer">
       <?php
-			$tags_list = get_the_tag_list( '', esc_html_x( '', 'list item separator', 'universal-example' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( '', 'list item separator', 'universal' ) );
 			if ( $tags_list ) {
         /* translators: 1: list of tags. */
-				printf( '<div class="tags-links">' . esc_html__( '%1$s', 'universal-example' ) . '</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<div class="tags-links">' . esc_html__( '%1$s', 'universal' ) . '</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
       // Поделиться в соцсетях
       meks_ess_share();

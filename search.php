@@ -68,8 +68,8 @@
         <?php
         $prev = '<svg class="icon" width="15" height="7">
             <use xlink:href="' . get_template_directory_uri() . '/assets/images/sprite.svg#left-arrow"></use>
-          </svg> Назад';
-        $next = 'Вперед <svg class="icon" width="15" height="7">
+          </svg>' . __('Back');
+        $next = __('Next') . '<svg class="icon" width="15" height="7">
             <use xlink:href="' . get_template_directory_uri() . '/assets/images/sprite.svg#arrow"></use>
           </svg>';
         $args = array(
