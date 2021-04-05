@@ -20,6 +20,32 @@
                 <h2 class="post-card-title">
                   <?php the_title()?>
                 </h2>
+                <footer class="post-card-footer article-footer">
+                  <?php $author_id = get_the_author_meta('ID'); ?>
+                  <img
+                    src="<?php echo get_avatar_url($author_id) ?>"
+                    alt="Автор статьи"
+                    class="author-avatar"
+                  />
+                  <div class="footer-wrapper">
+                    <cite class="author-name"><?php the_author(); ?></cite>
+                    <div class="footer-info">
+                      <span class="article-date"><?php the_time('j M'); ?></span>
+                      <span class="article-comments">
+                        <svg class="icon" width="15" height="15">
+                          <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#comment' ?>">
+                          </use>
+                        </svg>
+                        <?php comments_number('0', '1', '%'); ?></span>
+                        <span class="article-likes">
+                          <svg class="icon" width="15" height="15">
+                            <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/sprite.svg#heart' ?>">
+                            </use>
+                          </svg>
+                        <?php comments_number('0', '1', '%'); ?></span>
+                    </div>
+                  </div>
+                </footer>
               </div>
               <!-- /.post-card-text -->
             </div>
