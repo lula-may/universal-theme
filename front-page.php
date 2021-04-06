@@ -134,7 +134,7 @@
             href="<?php get_the_permalink(); ?>"
           >
             <h4 class="articles-bar-title">
-              <?php echo wp_trim_words( get_the_title(), 5, '...' ); ; ?>
+              <?php echo wp_trim_words( get_the_title(), 5, '...' ); ?>
             </h4>
           </a>
           <img

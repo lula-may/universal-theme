@@ -21,11 +21,11 @@ msgstr ""
 
 #: category.php:65 search.php:71
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: category.php:66 search.php:72
 msgid "Next"
-msgstr ""
+msgstr "Вперед"
 
 #: comments.php:49
 #, php-format

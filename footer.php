@@ -40,7 +40,7 @@
               'container'       => 'nav',
               'container_class' => 'footer-nav-wrapper',
               'menu_class'      => 'footer-nav',
-              'echo'            => true,
+              'echo'            => true
             ] );
             // Виджет соцсетей
           $instance = array(
@@ -48,7 +48,7 @@
             'facebook' => 'https://fb.com/',
             'twitter' => 'https://twitter.com/',
             'youtube' => 'https://youtube.com/',
-            'instagram' => 'https://instagram.com/',
+            'instagram' => 'https://instagram.com/'
           );
           $args = array(
             'before_widget' => '<div class="widget_social footer-social"><div class="widget_content">',

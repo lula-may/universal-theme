@@ -158,7 +158,7 @@ if ( post_password_required() ) {
         <svg class="icon" width="19" height="16">
           <use xlink:href="' . get_template_directory_uri() . '/assets/images/sprite.svg#arrow"></use>
         </svg></button>',
-      'label_submit' => 'Отправить ',
+      'label_submit' => 'Отправить '
         );
     comment_form($comment_args);
     ?>

@@ -23,7 +23,7 @@
               'container'       => 'nav',
               'container_class' => 'footer-nav-wrapper',
               'menu_class'      => 'footer-nav',
-              'echo'            => true,
+              'echo'            => true
             ] );
             // Виджет соцсетей
           $instance = array(

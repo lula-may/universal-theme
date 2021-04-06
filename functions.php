@@ -41,7 +41,7 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
           'not_found'          => __('Not found', 'universal'), // если в результате поиска ничего не было найдено
           'not_found_in_trash' => __('Not found in trash', 'universal'), // если не было найдено в корзине
           'parent_item_colon'  => '', // для родителей (у древовидных типов)
-          'menu_name'          => __('Lessons', 'universal'), // название меню
+          'menu_name'          => __('Lessons', 'universal') // название меню
         ],
         'description'         => __('Video lessons', 'universal'),
         'public'              => true,
@@ -63,7 +63,7 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
         'taxonomies'          => [],
         'has_archive'         => true,
         'rewrite'             => true,
-        'query_var'           => true,
+        'query_var'           => true
       ] );
     }
 
@@ -88,15 +88,15 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
           'update_item'       => __( 'Update Genre', 'universal' ),
           'add_new_item'      => __( 'Add New Genre', 'universal' ),
           'new_item_name'     => __( 'New Genre Name', 'universal' ),
-          'menu_name'         => __( 'Genre', 'universal' ),
+          'menu_name'         => __( 'Genre', 'universal' )
         ),
         'show_ui'       => true,
         'query_var'     => true,
-        'rewrite'       => array( 'slug' => 'genre' ), // свой слаг в URL
+        'rewrite'       => array( 'slug' => 'genre' ) // свой слаг в URL
       ));
 
       // Добавляем НЕ древовидную таксономию 'teacher' (как метки)
-      register_taxonomy('teacher', 'lesson',array(
+      register_taxonomy('teacher', 'lesson', array(
         'hierarchical'  => false,
         'labels'        => array(
           'name'                        => _x( 'Teachers', 'taxonomy general name', 'universal' ),
@@ -113,11 +113,11 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
           'separate_items_with_commas'  => __( 'Separate Teachers with commas', 'universal' ),
           'add_or_remove_items'         => __( 'Add or remove Teachers', 'universal' ),
           'choose_from_most_used'       => __( 'Choose from the most used Teachers', 'universal' ),
-          'menu_name'                   => __( 'Teachers', 'universal' ),
+          'menu_name'                   => __( 'Teachers', 'universal' )
         ),
         'show_ui'       => true,
         'query_var'     => true,
-        'rewrite'       => array( 'slug' => 'teacher' ), // свой слаг в URL
+        'rewrite'       => array( 'slug' => 'teacher' ) // свой слаг в URL
       ));
     }
   }
@@ -137,7 +137,7 @@ function universal_theme_widgets_init() {
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'after_title'   => '</h2>'
 		)
 	);
   register_sidebar(
@@ -148,7 +148,7 @@ function universal_theme_widgets_init() {
       'before_widget' => '<section id="%1$s" class="footer-menu %2$s">',
       'after_widget'  => '</section>',
       'before_title'  => '<h2 class="footer-menu-title">',
-      'after_title'   => '</h2>',
+      'after_title'   => '</h2>'
     )
   );
   register_sidebar(
@@ -159,7 +159,7 @@ function universal_theme_widgets_init() {
       'before_widget' => '<section id="%1$s" class="footer-text %2$s">',
       'after_widget'  => '</section>',
       'before_title'  => '',
-      'after_title'   => '',
+      'after_title'   => ''
     )
   );
     register_sidebar(
@@ -169,7 +169,7 @@ function universal_theme_widgets_init() {
       'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="container">',
       'after_widget'  => '</div></section>',
       'before_title'  => '<h2 class="hidden">',
-      'after_title'   => '</h2>',
+      'after_title'   => '</h2>'
     )
   );
     register_sidebar(
@@ -179,7 +179,7 @@ function universal_theme_widgets_init() {
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'after_title'   => '</h2>'
     )
   );
 }
@@ -829,7 +829,7 @@ function delete_intermediate_image_sizes( $sizes ){
 		'medium_large',
 		'large',
 		'1536x1536',
-		'2048x2048',
+		'2048x2048'
 	] );
 }
 
